@@ -1,0 +1,6 @@
+markdown: redcarpet
+redcarpet:
+    extensions: [with_toc_data]
+permalink: pretty
+baseurl:
+exclude: ['README.md']

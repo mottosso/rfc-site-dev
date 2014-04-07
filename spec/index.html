@@ -1,0 +1,35 @@
+---
+layout: default
+---
+	
+
+	<div class="overview row">
+
+
+
+		<div class="col-md-8">
+		<h2>Request for Comments</h2>
+
+		<p>This site contains published Abstract Factory RFCs. To create a new RFC or propose changes to a spec, please <a href="https://github.com/abstractfactory/rfc">fork the RFC repository</a>.</p>
+
+
+		<ul>
+		{% for weight in (1..site.pages.size) %}
+		  {% for spec in site.pages %}
+		  	{% if spec.layout == 'spec' %}
+			    {% if spec.number == weight %}
+					<li>
+						<a href="{{site.baseurl}}{{spec.url}}">{{spec.number}}  &mdash; {{spec.title}}</a>
+						<p>{{spec.summary}}</p>
+					</li>
+			    {% endif %}
+			{% endif %}
+		  {% endfor %}
+		{% endfor %}
+		</ul>
+
+
+		</div>
+
+	</div>
+      

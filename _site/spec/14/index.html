@@ -1,0 +1,264 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="/assets/img/ico/favicon.ico">
+
+    <title>Abstract Factory</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="/assets/css/bootstrap.min.css" rel="stylesheet">
+
+    <link href="/assets/css/styles.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+        <div class="navbar navbar-inverse" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/">Abstract Factory</a>
+        </div>
+        <div class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li class=""><a href="/">RFC</a></li>
+            <li class=""><a href="/about/">About</a></li>
+            <li class=""><a href="/contact/">Contact</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </div>
+
+
+
+
+    <div class="container">
+
+      <div class="spec-container row">
+	<div class="col-md-4">
+		<div class="toc">
+		</div>
+	</div>
+
+	<div class="col-md-7 col-md-offset-1">
+	<h1 id="toc_0">Temporal Open Metadata (TOM)</h1>
+
+<p>An extension to Open Metadata to support the notion of past, present and future.</p>
+
+<p><img src="https://dl.dropbox.com/s/3b09g8gl4y3is9u/spec14_tom_place_v001.png" alt=""></p>
+
+<ul>
+<li>Name: https://github.com/abstract-factory/rfc/spec:14 (14/TOM)</li>
+<li>Editor: Marcus Ottosson <a href="mailto:marcus@abstractfactory.io">marcus@abstractfactory.io</a></li>
+<li>Inherits: RFC1</li>
+<li>State: draft</li>
+</ul>
+
+<p>Copyright, Change Process and Language is derived via inheritance as per [RFC1][].</p>
+
+<h1 id="toc_1">Goal</h1>
+
+<p>This document describes a method of making changes to metadata non-destructive; meaning that any change can be undone, redone and found at any point in time without affecting the overall interactivity and intuitiveness of operation. It does so by appending the following objects to the Open Metadata object-model:</p>
+
+<ul>
+<li><code>history</code></li>
+<li><code>version</code></li>
+<li><code>imprint</code></li>
+<li><code>event</code></li>
+<li><code>trash</code></li>
+</ul>
+
+<p>And the following API functions:</p>
+
+<ul>
+<li><code>history</code></li>
+<li><code>restore</code></li>
+</ul>
+<div class="highlight"><pre><code class="python language-python" data-lang="python"><span class="n">dataset</span> <span class="o">=</span> <span class="n">om</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s">&#39;/home/marcus&#39;</span><span class="p">,</span> <span class="s">&#39;age&#39;</span><span class="p">)</span>
+
+<span class="c"># Get closest history</span>
+<span class="n">imprint</span> <span class="o">=</span> <span class="n">om</span><span class="o">.</span><span class="n">history</span><span class="p">(</span><span class="n">dataset</span><span class="p">)</span><span class="o">.</span><span class="n">next</span><span class="p">()</span>
+
+<span class="c"># Restore to closest history</span>
+<span class="n">om</span><span class="o">.</span><span class="n">restore</span><span class="p">(</span><span class="n">imprint</span><span class="p">)</span>
+
+<span class="c"># *Note: Restoring to closest history will</span>
+<span class="c">#        in effect undo the latest change.</span>
+</code></pre></div>
+<h1 id="toc_2">Architecture</h1>
+
+<p>A folder is added to each metadata hierarchy.</p>
+<div class="highlight"><pre><code class="python language-python" data-lang="python"><span class="o">+--</span> <span class="n">folder</span>
+<span class="o">|</span>   <span class="o">+--</span> <span class="o">.</span><span class="n">meta</span>
+<span class="o">|</span>   <span class="o">|</span>   <span class="o">|--</span> <span class="o">.</span><span class="n">history</span>
+<span class="o">|</span>   <span class="o">|</span>   <span class="o">|--</span> <span class="o">.</span><span class="n">versions</span>
+</code></pre></div>
+<p>Within <code>history</code> lies versions of previously altered data; <code>imprints</code>. Each <code>imprint</code> contains information about when the change occured, who performed it as well as the previous value itself.</p>
+
+<p><code>version</code> is identical to <code>history</code> except that it is incrementally versioned and not concerned with time.</p>
+
+<h3 id="toc_3">Recorded history</h3>
+
+<p>Whenever an existing attribute is overwritten, a copy of it MUST be backed up. This backup MUST be retrievable at a later time and MUST feature support for persistent, per-user undo/redo.</p>
+
+<p>Recorded information</p>
+
+<ul>
+<li>Previous value</li>
+<li>Time</li>
+<li>User</li>
+</ul>
+
+<p>Example</p>
+<div class="highlight"><pre><code class="python language-python" data-lang="python"><span class="o">+--</span> <span class="n">folder</span>
+<span class="o">|</span>   <span class="o">+--</span> <span class="o">.</span><span class="n">meta</span>
+<span class="o">|</span>   <span class="o">|</span>   <span class="o">+--</span> <span class="o">.</span><span class="n">history</span>
+<span class="o">|</span>   <span class="o">|</span>   <span class="o">|</span>   <span class="o">+--</span> <span class="n">some</span> <span class="n">data</span><span class="o">.</span><span class="n">string</span><span class="o">&amp;</span><span class="mi">20140401</span><span class="o">-</span><span class="mi">140541</span><span class="o">-</span><span class="mi">604</span>
+<span class="o">|</span>   <span class="o">|</span>   <span class="o">|</span>   <span class="o">|</span>   <span class="o">+--</span> <span class="n">user</span>
+<span class="o">|</span>   <span class="o">|</span>   <span class="o">|</span>   <span class="o">|</span>   <span class="o">+--</span> <span class="n">previous_value</span>
+<span class="o">|</span>   <span class="o">|</span>   <span class="o">|</span>   <span class="o">+--</span> <span class="n">some</span> <span class="n">data</span><span class="o">.</span><span class="n">string</span><span class="o">&amp;</span><span class="mi">20140401</span><span class="o">-</span><span class="mi">140751</span><span class="o">-</span><span class="mi">121</span>
+<span class="o">|</span>   <span class="o">|</span>   <span class="o">|</span>   <span class="o">|</span>   <span class="o">+--</span> <span class="n">user</span>
+<span class="o">|</span>   <span class="o">|</span>   <span class="o">|</span>   <span class="o">|</span>   <span class="o">+--</span> <span class="n">previous_value</span>
+<span class="o">|</span>   <span class="o">|</span>   <span class="o">|</span>   <span class="o">+--</span> <span class="n">some</span> <span class="n">data</span><span class="o">.</span><span class="n">string</span><span class="o">&amp;</span><span class="mi">20140401</span><span class="o">-</span><span class="mi">140751</span><span class="o">-</span><span class="mi">126</span>
+<span class="o">|</span>   <span class="o">|</span>   <span class="o">|</span>   <span class="o">|</span>   <span class="o">+--</span> <span class="n">user</span>
+<span class="o">|</span>   <span class="o">|</span>   <span class="o">|</span>   <span class="o">|</span>   <span class="o">+--</span> <span class="n">previous_value</span>
+<span class="o">|</span>   <span class="o">|</span>   <span class="o">+--</span> <span class="n">some</span> <span class="n">data</span><span class="o">.</span><span class="n">string</span>
+</code></pre></div>
+<h3 id="toc_4">An historical event</h3>
+
+<p>Each change MUST be recorded as an <code>event</code> containing the following information:</p>
+
+<ul>
+<li>Action taking place</li>
+<li>Path to metadata in question</li>
+<li>Summary of previous value</li>
+<li>Summary of current value</li>
+<li>Time</li>
+<li>User</li>
+</ul>
+<div class="highlight"><pre><code class="python language-python" data-lang="python"><span class="c"># Folder layout</span>
+<span class="o">+--</span> <span class="n">folder</span>
+<span class="o">|</span>   <span class="o">+--</span> <span class="o">.</span><span class="n">meta</span>
+<span class="o">|</span>   <span class="o">|</span>   <span class="o">+--</span> <span class="o">.</span><span class="n">event</span>  <span class="c"># &lt;-- event `file`</span>
+
+<span class="c"># Event contents</span>
+<span class="p">[</span><span class="n">time</span><span class="p">]</span>
+    <span class="p">[</span><span class="n">metadata</span><span class="p">]</span>
+    <span class="p">[</span><span class="n">action</span><span class="p">]</span>
+    <span class="p">[</span><span class="n">summary_previous</span><span class="p">]</span>
+    <span class="p">[</span><span class="n">summary_current</span><span class="p">]</span>
+    <span class="p">[</span><span class="n">user</span><span class="p">]</span>
+
+<span class="c"># Example</span>
+<span class="mi">20140402</span><span class="o">-</span><span class="mi">215327</span><span class="o">-</span><span class="mi">643</span>
+    <span class="n">parent</span><span class="o">/</span><span class="n">age</span><span class="o">.</span><span class="n">int</span>
+    <span class="n">modified</span>
+    <span class="mi">5</span>
+    <span class="mi">6</span>
+    <span class="n">marcus</span>
+
+<span class="mi">20140402</span><span class="o">-</span><span class="mi">215345</span><span class="o">-</span><span class="mi">643</span>
+    <span class="n">status</span><span class="o">.</span><span class="n">bool</span>
+    <span class="n">modified</span>
+    <span class="bp">True</span>
+    <span class="bp">False</span>
+    <span class="n">albert</span>
+</code></pre></div>
+<p>As history may be discarded upon retrieval, it is important to retain some notion of history for future reference. For instance, multiple changes may have been made, but at some point in time a very early version of history was restored and thus discarded all following history. For users in the future, they would have no way of knowing whether there was any data between the restoration and previously latest value.</p>
+
+<h3 id="toc_5">An alternative version</h3>
+
+<p>At any point in time MAY a node be stored as a version. A version is identical to a historical backup, except for its incremental versioning and that it may also support additional metadata such as a note.</p>
+
+<p>Versions are useful when making changes that are hard to test without altering original data. A version could then be made, knowing that one could safely return at any point in time.</p>
+
+<p>A note is stored as convenience for a future self or others who might be interested in knowing what has already been tried in before.</p>
+
+<p>Recorded information</p>
+
+<ul>
+<li>Previous value</li>
+<li>Time</li>
+<li>User</li>
+<li>Note</li>
+</ul>
+
+<p>Example</p>
+<div class="highlight"><pre><code class="python language-python" data-lang="python"><span class="o">+--</span> <span class="n">folder</span>
+<span class="o">|</span>   <span class="o">+--</span> <span class="o">.</span><span class="n">meta</span>
+<span class="o">|</span>   <span class="o">|</span>   <span class="o">+--</span> <span class="o">.</span><span class="n">versions</span>
+<span class="o">|</span>   <span class="o">|</span>   <span class="o">|</span>   <span class="o">+--</span> <span class="n">v001</span><span class="o">&amp;</span><span class="n">some</span> <span class="n">data</span><span class="o">.</span><span class="n">string</span>
+<span class="o">|</span>   <span class="o">|</span>   <span class="o">|</span>   <span class="o">|</span>   <span class="o">+--</span> <span class="n">user</span>
+<span class="o">|</span>   <span class="o">|</span>   <span class="o">|</span>   <span class="o">|</span>   <span class="o">+--</span> <span class="n">note</span>
+<span class="o">|</span>   <span class="o">|</span>   <span class="o">|</span>   <span class="o">|</span>   <span class="o">+--</span> <span class="n">previous_value</span>
+<span class="o">|</span>   <span class="o">|</span>   <span class="o">+--</span> <span class="n">some</span> <span class="n">data</span><span class="o">.</span><span class="n">string</span>
+</code></pre></div>
+<h3 id="toc_6">Taking out the trash</h3>
+
+<p>Any removed node MUST be put into a persistent <code>trash</code> repository within its immediate parent.</p>
+<div class="highlight"><pre><code class="python language-python" data-lang="python"><span class="o">+--</span> <span class="n">folder</span>
+<span class="o">|</span>   <span class="o">+--</span> <span class="o">.</span><span class="n">meta</span>
+<span class="o">|</span>   <span class="o">|</span>   <span class="o">+--</span> <span class="n">some</span> <span class="n">data</span><span class="o">.</span><span class="n">string</span>  <span class="c"># &lt;-- remove</span>
+</code></pre></div><div class="highlight"><pre><code class="python language-python" data-lang="python"><span class="o">+--</span> <span class="n">folder</span>
+<span class="o">|</span>   <span class="o">+--</span> <span class="o">.</span><span class="n">meta</span>
+<span class="o">|</span>   <span class="o">|</span>   <span class="o">+--</span> <span class="o">.</span><span class="n">trash</span>
+<span class="o">|</span>   <span class="o">|</span>   <span class="o">|</span>   <span class="o">+--</span> <span class="n">some</span> <span class="n">data</span><span class="o">.</span><span class="n">string</span>
+</code></pre></div>
+<p>Names of nodes - i.e. excluding their suffix - in trash MUST be unique; e.g. if &quot;some data.string&quot; is deleted, created once more as &quot;some data.int&quot; and again deleted, the first trashed node MUST be permanently deleted.</p>
+
+<p>Target usage of trash is of software using it to either purposefully restore lost metadata or to casually suggest restoring metadata upon creation of new node that may already exist in trash.</p>
+
+<h3 id="toc_7">Undo</h3>
+<div class="highlight"><pre><code class="python language-python" data-lang="python"><span class="o">&gt;&gt;&gt;</span> <span class="n">om</span><span class="o">.</span><span class="n">undo</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="n">user</span><span class="o">=</span><span class="bp">None</span><span class="p">)</span>
+</code></pre></div>
+<p>When there is history, there is the possibility of undoing changes made. Since anyone may make edits, there is the possibility of you undoing someone elses change.</p>
+<div class="highlight"><pre><code class="python language-python" data-lang="python"><span class="o">+--</span> <span class="o">.</span><span class="n">history</span>
+<span class="o">|</span>   <span class="o">+--</span> <span class="n">some</span> <span class="n">data</span><span class="o">.</span><span class="n">string</span><span class="o">&amp;</span><span class="mi">20140401</span><span class="o">-</span><span class="mo">000000</span><span class="o">-</span><span class="mo">001</span>  <span class="c"># &lt;-- by me</span>
+<span class="o">|</span>   <span class="o">+--</span> <span class="n">some</span> <span class="n">data</span><span class="o">.</span><span class="n">string</span><span class="o">&amp;</span><span class="mi">20140401</span><span class="o">-</span><span class="mo">000000</span><span class="o">-</span><span class="mo">002</span>  <span class="c"># &lt;-- by you</span>
+<span class="o">|</span>   <span class="o">+--</span> <span class="n">some</span> <span class="n">data</span><span class="o">.</span><span class="n">string</span><span class="o">&amp;</span><span class="mi">20140401</span><span class="o">-</span><span class="mo">000000</span><span class="o">-</span><span class="mo">003</span>  <span class="c"># &lt;-- by me</span>
+</code></pre></div>
+<p>When specifying a <code>user</code> and the change about to be undone doesn&#39;t match Open Metadata MUST break operation and either raise an exception or return an error code.</p>
+
+<h3 id="toc_8">Redo</h3>
+
+<p>For every undo made, history is moved into a temporary &#39;.redo&#39; cache.</p>
+<div class="highlight"><pre><code class="python language-python" data-lang="python"><span class="o">+--</span> <span class="o">.</span><span class="n">history</span>
+<span class="o">+--</span> <span class="o">.</span><span class="n">redo</span>
+<span class="o">|</span>   <span class="o">+--</span> <span class="n">some</span> <span class="n">data</span><span class="o">.</span><span class="n">string</span><span class="o">&amp;</span><span class="mi">20140401</span><span class="o">-</span><span class="mo">000000</span><span class="o">-</span><span class="mo">001</span>  <span class="c"># &lt;-- time of undo</span>
+</code></pre></div>
+<p>Original time-stamp is removed and replaced with the time of undoing so as to keep track of which to redo in which order.</p>
+
+<p>Once new history is written, e.g. a new change has been made, the redo cache is permanently cleared.</p>
+
+	</div>
+</div>
+
+    
+    </div>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="/assets/js/bootstrap.min.js"></script>
+    <script src="/assets/js/plugins.js"></script>
+    <script src="/assets/js/main.js"></script>
+  </body>
+</html>
