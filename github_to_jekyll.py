@@ -84,6 +84,19 @@ def to_jekyll_header(parsed):
     return header
 
 
+def exclude_draft(content):
+    import re
+
+    pat = re.compile(r'<draft>.*</draft>', re.DOTALL)
+    match = pat.findall(content)
+
+    for group in match:
+        print "Excluding %s" % group
+        content = ''.join(content.split(group, 1)[0:2])
+
+    return content
+
+
 class ToJekyllCommand(sublime_plugin.TextCommand):
     def run(self, edit):
         """
@@ -123,6 +136,9 @@ class ToJekyllCommand(sublime_plugin.TextCommand):
         # Append date
         modified = time.strftime("%Y-%m-%d %H:%M:%S", time.gmtime())
         parsed['modified'] = modified
+
+        # Exclude parts of content marked <draft>
+        content = exclude_draft(content)
 
         # Merge original content with jekyll header
         jekyll_header = to_jekyll_header(parsed)
