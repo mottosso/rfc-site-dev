@@ -11,6 +11,7 @@ File is written to a /jekyll parent directory:
 import os
 import re
 import time
+
 import sublime, sublime_plugin
 
 DIV = '\n\n'
