@@ -121,7 +121,7 @@ class ToJekyllCommand(sublime_plugin.TextCommand):
         parsed['number'] = number
 
         # Append date
-        modified = time.strftime("%Y-%m-%d-%H:%M:%S", time.gmtime())
+        modified = time.strftime("%Y-%m-%d %H:%M:%S", time.gmtime())
         parsed['modified'] = modified
 
         # Merge original content with jekyll header
