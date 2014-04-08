@@ -9,9 +9,12 @@ File is written to a /jekyll parent directory:
 """
 
 import os
+import time
 import sublime, sublime_plugin
 
 DIV = '\n\n'
+SPEC_TEMPLATE = 'http://rfc.abstractfactory.io/spec/{number}.md'
+GITHUB_TEMPLATE = 'https://github.com/abstractfactory/rfc/blob/master/spec{number}.md'
 
 
 def groups(content):
@@ -60,10 +63,21 @@ def to_jekyll_header(parsed):
     """Using parsed content, construct Jekyll header"""
     jp = []
     jp.append('layout: spec')
-    jp.append('number: %s' % parsed['number'])
-    jp.append('title: %s' % parsed['title'])
-    jp.append('summary: %s' % parsed['summary'])
 
+    # Disregard content
+    parsed.pop('content')
+
+    # Append properties from content
+    content_properties = parsed.pop('properties').items()
+    jekyll_properties = parsed.items()
+    properties = content_properties + jekyll_properties
+
+    for key, value in properties:
+        if not value:
+            continue
+        jp.append('%s: %s' % (key.lower(), value))
+
+    jp.sort()
     header = '---\n%s\n---\n'
     header = header % '\n'.join(jp)
 
@@ -106,6 +120,10 @@ class ToJekyllCommand(sublime_plugin.TextCommand):
 
         parsed['number'] = number
 
+        # Append date
+        modified = time.strftime("%Y-%m-%d-%H:%M:%S", time.gmtime())
+        parsed['modified'] = modified
+
         # Merge original content with jekyll header
         jekyll_header = to_jekyll_header(parsed)
         jekyll_document = jekyll_header + content
@@ -117,7 +135,7 @@ class ToJekyllCommand(sublime_plugin.TextCommand):
         output_path = os.path.join(output_directory, output_file)
 
         if not os.path.exists(output_directory):
-            os.path.mkdir(output_directory)
+            os.mkdir(output_directory)
 
         print "Writing Jekyll file %s" % output_path
 
