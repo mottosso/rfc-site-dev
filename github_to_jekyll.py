@@ -108,15 +108,15 @@ def substitute_rfc(content):
 
     """
 
-    pat = re.compile(r'RFC\d+')
+    # pat = re.compile(r'RFC\d+')
 
-    for rfc in pat.findall(content):
-        number = rfc[3:]
-        link = SPEC_TEMPLATE.format(number=number)
-        replacement = "[%s](%s)" % (rfc, link)
-        content = content.replace(rfc, replacement)
+    # for rfc in pat.findall(content):
+    #     number = rfc[3:]
+    #     link = SPEC_TEMPLATE.format(number=number)
+    #     replacement = "[%s](%s)" % (rfc, link)
+    #     content = content.replace(rfc, replacement)
 
-        print "Replacing %s with %s" % (rfc, replacement)
+    #     print "Replacing %s with %s" % (rfc, replacement)
 
     return content
 
