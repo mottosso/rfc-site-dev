@@ -78,7 +78,7 @@ def to_jekyll_header(parsed):
         jp.append('%s: %s' % (key.lower(), value))
 
     jp.sort()
-    header = '---\n%s\n---\n'
+    header = '---\n%s\n---\n\n'
     header = header % '\n'.join(jp)
 
     return header
