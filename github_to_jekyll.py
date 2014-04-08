@@ -9,18 +9,19 @@ File is written to a /jekyll parent directory:
 """
 
 import os
+import re
 import time
 import sublime, sublime_plugin
 
 DIV = '\n\n'
-SPEC_TEMPLATE = 'http://rfc.abstractfactory.io/spec/{number}.md'
+SPEC_TEMPLATE = 'http://rfc.abstractfactory.io/spec/{number}'
 GITHUB_TEMPLATE = 'https://github.com/abstractfactory/rfc/blob/master/spec{number}.md'
 
 
-def groups(content):
+def blocks(content):
     """
-    Return a generator of groups within `content`
-    Groups are blocks of text separated by an empty line.
+    Return a generator of blocks within `content`
+    *Blocks are text separated by an empty line.
 
     """
 
@@ -30,7 +31,7 @@ def groups(content):
 
 def parse(content):
     """Convert `content` into dictionary"""
-    gen = groups(content)
+    gen = blocks(content)
 
     title = gen.next().strip("# ")
     summary = gen.next()
@@ -61,39 +62,67 @@ def parse(content):
 
 def to_jekyll_header(parsed):
     """Using parsed content, construct Jekyll header"""
-    jp = []
-    jp.append('layout: spec')
+    jekyll_properties = {'layout': 'spec'}
 
     # Disregard content
     parsed.pop('content')
 
     # Append properties from content
-    content_properties = parsed.pop('properties').items()
-    jekyll_properties = parsed.items()
-    properties = content_properties + jekyll_properties
+    content_properties = parsed.pop('properties')
+    
+    jekyll_properties.update(parsed)
+    jekyll_properties.update(content_properties)
 
-    for key, value in properties:
+    header = '---\n'
+    for key, value in jekyll_properties.iteritems():
         if not value:
             continue
-        jp.append('%s: %s' % (key.lower(), value))
-
-    jp.sort()
-    header = '---\n%s\n---\n\n'
-    header = header % '\n'.join(jp)
+        header += '%s: %s\n' % (key.lower(), value)
+    header += '---\n\n'
 
     return header
 
 
 def exclude_draft(content):
-    import re
-
     pat = re.compile(r'<draft>.*</draft>', re.DOTALL)
-    match = pat.findall(content)
 
-    for group in match:
-        print "Excluding %s" % group
+    for group in pat.findall(content):
+        print "Excluding draft \n%s" % group
         content = ''.join(content.split(group, 1)[0:2])
 
+    return content
+
+
+def substitute_rfc(content):
+    """
+    Find lone RFC statements and replace them with full links
+
+    Example
+        --> This is RFC14
+        <-- This is [RFC14](http://path/to/rfc/14)
+
+    Expression
+        Statement MUST be preceeded by an empty space
+        Statement MUST be succeded by number
+        Statement MUST be succeded by either empty space OR newline
+
+    """
+
+    pat = re.compile(r'RFC\d+')
+
+    for rfc in pat.findall(content):
+        number = rfc[3:]
+        link = SPEC_TEMPLATE.format(number=number)
+        replacement = "[%s](%s)" % (rfc, link)
+        content = content.replace(rfc, replacement)
+
+        print "Replacing %s with %s" % (rfc, replacement)
+
+    return content
+
+
+def perform_string_substitution(content):
+    content = substitute_rfc(content)
     return content
 
 
@@ -130,15 +159,21 @@ class ToJekyllCommand(sublime_plugin.TextCommand):
         basename = os.path.basename(source_file)
         name, ext = os.path.splitext(basename)
         number = name.strip("spec")
-
         parsed['number'] = number
 
         # Append date
         modified = time.strftime("%Y-%m-%d %H:%M:%S", time.gmtime())
         parsed['modified'] = modified
 
+        # Append GitHub link
+        link = GITHUB_TEMPLATE.format(number=number)
+        parsed['link'] = link
+
         # Exclude parts of content marked <draft>
         content = exclude_draft(content)
+
+        # Process string-substitutions
+        content = perform_string_substitution(content)
 
         # Merge original content with jekyll header
         jekyll_header = to_jekyll_header(parsed)
