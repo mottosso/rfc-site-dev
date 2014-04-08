@@ -1,61 +1,118 @@
+/*!
+ * toc - jQuery Table of Contents Plugin
+ * v0.2.0
+ * http://projects.jga.me/toc/
+ * copyright Greg Allen 2014
+ * MIT License
+*/
 
+(function($) {
+$.fn.toc = function(options) {
+  var self = this;
+  var opts = $.extend({}, jQuery.fn.toc.defaults, options);
 
-// https://github.com/ghiculescu/jekyll-table-of-contents
-(function($){
-  $.fn.toc = function(options) {
-    var defaults = {
-      noBackToTopLinks: false,
-      title: '<i>Table of Contents</i>',
-      listType: 'ol', // values: [ol|ul]
-      showSpeed: 'slow'
-    },
-    settings = $.extend(defaults, options);
-    
-    var headers = $('h1, h2, h3, h4, h5, h6').filter(function() {
-      // get all headers with an ID
-      return this.id;
-    }), output = $(this);
-    if (!headers.length || headers.length < 3 || !output.length) {
-      return;
-    }
-    
-    var get_level = function(ele) { return parseInt(ele.nodeName.replace("H", ""), 10); }
-    var highest_level = headers.map(function(_, ele) { return get_level(ele); }).get().sort()[0];
-    var return_to_top = '<i class="icon-arrow-up back-to-top"> </i>';
-    
-    var level = get_level(headers[0]),
-      this_level,
-      html = settings.title + " <"+settings.listType+">";
-    headers.on('click', function() {
-      if (!settings.noBackToTopLinks) {
-        window.location.hash = this.id;
-      }
-    })
-    .addClass('clickable-header')
-    .each(function(_, header) {
-      this_level = get_level(header);
-      if (!settings.noBackToTopLinks && this_level === highest_level) {
-        $(header).addClass('top-level-header').after(return_to_top);
-      }
-      if (this_level === level) // same level as before; same indenting
-        html += "<li><a href='#" + header.id + "'>" + header.innerHTML + "</a>";
-      else if (this_level < level) // higher level than before; end parent ol
-        html += "</li></"+settings.listType+"></li><li><a href='#" + header.id + "'>" + header.innerHTML + "</a>";
-      else if (this_level > level) // lower level than before; expand the previous to contain a ol
-        html += "<"+settings.listType+"><li><a href='#" + header.id + "'>" + header.innerHTML + "</a>";
-      level = this_level; // update for the next one
-    });
-    html += "</"+settings.listType+">";
-    if (!settings.noBackToTopLinks) {
-      $(document).on('click', '.back-to-top', function() {
-        $(window).scrollTop(0);
-        window.location.hash = '';
+  var container = $(opts.container);
+  var headings = $(opts.selectors, container);
+  var headingOffsets = [];
+  var activeClassName = opts.prefix+'-active';
+
+  var scrollTo = function(e, callback) {
+    if (opts.smoothScrolling) {
+      e.preventDefault();
+      var elScrollTo = $(e.target).attr('href');
+      var $el = $(elScrollTo);
+
+      $('body,html').animate({ scrollTop: $el.offset().top + opts.scrollToOffset }, 400, 'swing', function() {
+        location.hash = elScrollTo;
+        callback();
       });
     }
-    if (0 !== settings.showSpeed) {
-      output.hide().html(html).show(settings.showSpeed);
-    } else {
-      output.html(html);
-    }
+    $('li', self).removeClass(activeClassName);
+    $(e.target).parent().addClass(activeClassName);
   };
+
+  //highlight on scroll
+  var timeout;
+  var highlightOnScroll = function(e) {
+    if (timeout) {
+      clearTimeout(timeout);
+    }
+    timeout = setTimeout(function() {
+      var top = $(window).scrollTop(),
+        highlighted, closest = Number.MAX_VALUE, index = 0;
+      
+      for (var i = 0, c = headingOffsets.length; i < c; i++) {
+        var currentClosest = Math.abs(headingOffsets[i] - top);
+        if (currentClosest < closest) {
+          index = i;
+          closest = currentClosest;
+        }
+      }
+      
+      $('li', self).removeClass(activeClassName);
+      highlighted = $('li:eq('+ index +')', self).addClass(activeClassName);
+      opts.onHighlight(highlighted);      
+    }, 50);
+  };
+  if (opts.highlightOnScroll) {
+    $(window).bind('scroll', highlightOnScroll);
+    highlightOnScroll();
+  }
+
+  return this.each(function() {
+    //build TOC
+    var el = $(this);
+    var ul = $(opts.listType);
+    headings.each(function(i, heading) {
+      var $h = $(heading);
+      headingOffsets.push($h.offset().top - opts.highlightOffset);
+
+      //add anchor
+      var anchor = $('<span/>').attr('id', opts.anchorName(i, heading, opts.prefix)).insertBefore($h);
+
+      //build TOC item
+      var a = $('<a/>')
+        .text(opts.headerText(i, heading, $h))
+        .attr('href', '#' + opts.anchorName(i, heading, opts.prefix))
+        .bind('click', function(e) {
+          $(window).unbind('scroll', highlightOnScroll);
+          scrollTo(e, function() {
+            $(window).bind('scroll', highlightOnScroll);
+          });
+          el.trigger('selected', $(this).attr('href'));
+        });
+
+      var li = $('<li/>')
+        .addClass(opts.itemClass(i, heading, $h, opts.prefix))
+        .append(a);
+
+      ul.append(li);
+    });
+    el.html(ul);
+  });
+};
+
+
+jQuery.fn.toc.defaults = {
+  container: 'body',
+  listType: '<ul/>',
+  selectors: 'h1,h2,h3',
+  smoothScrolling: true,
+  scrollToOffset: 0,
+  prefix: 'toc',
+  onHighlight: function() {},
+  highlightOnScroll: true,
+  highlightOffset: 100,
+  anchorName: function(i, heading, prefix) {
+    return prefix+i;
+  },
+  headerText: function(i, heading, $heading) {
+    return $heading.text();
+  },
+  itemClass: function(i, heading, $heading, prefix) {
+    return prefix + '-' + $heading[0].tagName.toLowerCase();
+  }
+
+};
+
 })(jQuery);

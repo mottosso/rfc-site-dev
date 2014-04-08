@@ -1,3 +1,15 @@
+a:hover, a:active, a:focus {
+	outline: 0;
+}
+
+h1 {
+	border-bottom: 1px solid #DDDDDD;
+    margin-bottom: 20px;
+    margin-top: 40px;
+    padding-bottom: 10px;
+}
+
+
 img {
 	width:100%;
 	height:auto;
@@ -28,14 +40,101 @@ img {
 }
 
 
-/* Sticky our navbar on window scroll */
-.sticky {
+.toc-wrap {
+	//position:fixed;
 
-	@media screen and (min-width: 980px) {
-	    position:fixed;
-	    top:15px;
+	margin-top:40px;
+	.btn {
+		width:100%;
+		text-align:left;
+		border-radius: 0;
+		background-color:#f0f0f0;
+		margin-bottom:1px;
+		color:#333333;
+
+		&:hover {
+			background-color:#333333;
+			color:#fff;
+		}
+
 	}
 
+}
+
+#demo {
+	background-color:#f6f6f6;
+	padding:20px;
+}
+
+
+.toc {
+
+	ul {
+	    margin: 0;
+	    padding: 0;
+	    list-style: none;
+
+	}
+
+	li {
+    	padding: 0;
+		//zoom: 1;
+		//filter: alpha(opacity=50);
+		//opacity: 0.5;
+
+	 	border-bottom: 1px solid #DDDDDD;
+	    padding: 0.5em 0;
+
+	}
+
+	a {
+	    display: block;
+
+	    &:hover {
+	    	color:#000;
+	    }
+
+	}
+
+	.h1, .h2, .h3 {
+		font-weight:normal;
+		font-size:12px;
+		margin:0;
+		list-style:none;
+	}
+	.h2, .h3 {
+    	display:none;
+	}
+
+	.toc-active {
+		//zoom: 1;
+		//filter: alpha(opacity=100);
+		//opacity: 1;
+
+		a {
+			
+		}
+
+	}
+
+
+}
+
+
+
+#page-wrap { 
+  position: relative; 
+
+  h1 {
+	&:first-child {
+		margin-top:0;
+	}
+  }
+
+}
+
+#sidebar { 
+  //overflow:hidden;
 }
 
 

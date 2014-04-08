@@ -2,15 +2,33 @@
 layout: default
 ---
 
+<div id="page-wrap" class="spec-container row">
 
-
-<div class="spec-container row">
-	<div class="col-md-4">
-		<div class="toc">
-		</div>
-	</div>
-
-	<div class="col-md-7 col-md-offset-1">
+	<div class="col-md-7">
 	{{content}}
 	</div>
+
+	<div id="sidebar" class="col-md-3 col-md-offset-1">
+
+		<div class="toc-wrap">
+			
+			{% if page.link %}
+				<a target="_blank" class="btn" href="{{ page.link }}">
+				 <span class="glyphicon glyphicon glyphicon-pencil"></span> Edit / Comment
+				</a>
+			{% endif %}
+
+			<button type="button" class="btn" data-toggle="collapse" data-target="#demo">
+			 <span class="glyphicon glyphicon-align-justify"></span> Table of Contents
+			</button>
+
+			<div id="demo" class="collapse in">
+				<div class="toc">
+				</div>
+			</div>
+		</div>
+
+	</div>
+
+
 </div>
