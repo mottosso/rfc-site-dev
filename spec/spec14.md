@@ -1,16 +1,3 @@
----
-inherits: RFC1
-state: draft
-layout: spec
-name: http://rfc.abstractfactory.io/spec/14
-title: Temporal Open Metadata
-editor: Marcus Ottosson <marcus@abstractfactory.io>
-link: https://github.com/abstractfactory/rfc/blob/master/spec14.md
-number: 14
-modified: 2014-04-08 13:50:19
-summary: An extension to Open Metadata to support the notion of past, present and future.
----
-
 # Temporal Open Metadata
 
 An extension to Open Metadata to support the notion of past, present and future.
@@ -19,7 +6,7 @@ An extension to Open Metadata to support the notion of past, present and future.
 
 * Name: http://rfc.abstractfactory.io/spec/14
 * Editor: Marcus Ottosson <marcus@abstractfactory.io>
-* Inherits: [RFC1](http://rfc.abstractfactory.io/spec/1)
+* Inherits: RFC1
 * State: draft
 
 Copyright, Change Process and Language is derived via inheritance as per RFC1.
@@ -88,14 +75,14 @@ folder
 |--- .meta
      |--- .history
      |    |--- some data.string&20140401-140541-604
-     |    |--- user
-     |    |--- value
-     |--- some data.string&20140401-140751-121
-     |    |--- user
-     |    |--- value
-     |--- some data.string&20140401-140751-126
-     |    |--- user
-     |    |--- value
+     |    |    |--- user
+     |    |    |--- value
+     |    |--- some data.string&20140401-140751-121
+     |    |    |--- user
+     |    |    |--- value
+     |    |--- some data.string&20140401-140751-126
+     |    |    |--- user
+     |    |    |--- value
      |--- some data.string
 ```
 
@@ -164,7 +151,7 @@ Example
 |-- folder
 |   |-- .meta
 |   |   |-- .versions
-|   |   |   |-- v001&some data.string
+|   |   |   |-- some data.string&v001
 |   |   |   |   |-- user
 |   |   |   |   |-- note
 |   |   |   |   |-- previous_value
