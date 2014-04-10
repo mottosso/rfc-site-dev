@@ -9,7 +9,12 @@
     <meta name="author" content="">
     <link rel="shortcut icon" href="{{site.baseurl}}/assets/img/ico/favicon.ico">
 
+
+    {% if page %}
+    <title>{{ page.title }} | Abstract Factory RFC</title>
+    {% else %}
     <title>Abstract Factory RFC</title>
+    {% endif %}
 
     <link href="{{site.baseurl}}/assets/css/bootstrap.css" rel="stylesheet">
     <link href="{{site.baseurl}}/assets/css/styles.css" rel="stylesheet">
@@ -27,7 +32,6 @@
     <div id="loading"></div>
 
     {% include nav.html %}
-
 
     <div class="container">
 
