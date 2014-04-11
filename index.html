@@ -1,26 +1,82 @@
 ---
 layout: default
+title: RFC Overview
 ---
 	
 
-	<div class="overview row">
+
+
+	<div id="overview" class="overview row">
 
 
 
-		<div class="col-md-8">
+		<div class="col-md-7 col-md-offset-1">
 		<h2>Request for Comments</h2>
 
 		<p>This site contains published Abstract Factory RFCs. To create a new RFC or propose changes to a spec, please <a href="https://github.com/abstractfactory/rfc">fork the RFC repository</a>.</p>
 
 
-		<ul>
+  <ul class="sub-nav nav nav-pills">
+      <li class="dropdown">
+        <a class="btn btn-default" id="drop4" role="button" data-toggle="dropdown" href="#">Sort by State <b class="caret"></b></a>
+        <ul id="menu1" class="dropdown-menu" role="menu" aria-labelledby="drop4">
+	            <li class="btn" id="filter-none">Show all</li>
+	            <li class="btn" id="filter-draft">Only show draft</li>
+	            <li class="btn" id="filter-raw">Only show raw</li>
+        </ul>
+      </li>
+
+
+      <li>
+      <button class="sort btn btn-default" data-sort="date">
+	    Sort by Last Modified
+	  </button>
+      </li>
+     
+
+
+
+
+	  <input class="search" placeholder="Search..." />
+
+
+
+
+    </ul> <!-- /pills -->
+
+
+
+
+
+
+
+         
+
+		<ul class="list">
 		{% for weight in (1..site.pages.size) %}
 		  {% for spec in site.pages %}
 		  	{% if spec.layout == 'spec' %}
 			    {% if spec.number == weight %}
-					<li>
-						<a href="{{site.baseurl}}{{spec.url}}">{{spec.number}}  &mdash; {{spec.title}}</a>
-						<p>{{spec.summary}}</p>
+			    	
+
+					<li class="{{spec.state}}">
+						<a class="title" href="{{site.baseurl}}{{spec.url}}">{{spec.number}}  &mdash; {{spec.title}}</a>
+						<p class="summary">{{spec.summary}}</p>
+						
+
+							{% if spec.modified %}
+								<span class="date">{{spec.modified | date: "%Y-%m-%d %H:%M:%S"}}</span>
+							{% endif %}
+
+							{% if spec.tags %}
+								<span class="tags">{{spec.tags}}</span>
+							{% endif %}
+
+							{% if spec.state %}
+								<span class="state">{{spec.state}}</span>
+							{% endif %}
+
+						
 					</li>
 			    {% endif %}
 			{% endif %}

@@ -1,21 +1,52 @@
-    <div class="navbar navbar-inverse" role="navigation">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="{{site.baseurl}}/">Abstract Factory</a>
-        </div>
-        <div class="collapse navbar-collapse">
-          <ul class="nav navbar-nav">
-            <li class="{% if page.url == '/' %}active{% endif %}{% if page.url == '/spec/' %}active{% endif %}"><a href="{{site.baseurl}}/">RFC</a></li>
-            <li class="{% if page.url == '/about/' %}active{% endif %}"><a href="{{site.baseurl}}/about/">About</a></li>
-            <li class="{% if page.url == '/contact/' %}active{% endif %}"><a href="{{site.baseurl}}/contact/">Contact</a></li>
-          </ul>
-        </div><!--/.nav-collapse -->
-      </div>
+
+
+
+
+<div class="navmenu navmenu-default navmenu-fixed-left offcanvas">
+      <a class="navbar-brand" href="{{site.baseurl}}/">Abstract Factory</a>
+
+
+      <ul class="nav navmenu-nav">
+
+
+
+          <li class="dropdown-1 open">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown-1">RFC <b class="caret"></b></a>
+            <ul class="dropdown-menu navmenu-nav">
+                      <li class="{% if page.url == '/' %}active{% endif %}{% if page.url == '/spec/' %}active{% endif %}"><a href="{{site.baseurl}}/">Overview</a></li>
+                      <li class="{% if page.url == '/about/' %}active{% endif %}"><a href="{{site.baseurl}}/about/">About</a></li>
+                      <li class="{% if page.url == '/contact/' %}active{% endif %}"><a href="{{site.baseurl}}/contact/">Contact</a></li>
+
+            </ul>
+          </li>
+
+
+          <li class="dropdown-2 open">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown-2">RFC Quick Access <b class="caret"></b></a>
+            <ul class="dropdown-menu navmenu-nav">
+              {% for weight in (1..site.pages.size) %}
+                    {% for spec in site.pages %}
+                      {% if spec.layout == 'spec' %}
+                        {% if spec.number == weight %}
+                        <li>
+                          <a class="title" href="{{site.baseurl}}{{spec.url}}">{{spec.number}}  &mdash; {{spec.title}}</a>
+                        </li>
+                        {% endif %}
+                    {% endif %}
+                    {% endfor %}
+                  {% endfor %}
+            </ul>
+          </li>
+
+
+
+      </ul>
     </div>
 
+    <div class="navbar navbar-default navbar-fixed-top">
+      <button type="button" class="navbar-toggle" data-toggle="offcanvas" data-target=".navmenu" data-canvas="body">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
