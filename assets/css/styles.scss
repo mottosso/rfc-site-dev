@@ -67,7 +67,9 @@
 	}
 
 	pre code {
-		white-space: inherit; //prevent code from wrapping
+		white-space: pre;
+		word-break: normal;
+		word-wrap: normal;
 	}
 
 

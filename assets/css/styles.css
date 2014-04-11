@@ -55,13 +55,15 @@ img {
 
 /* line 69, styles.scss */
 pre code {
-  white-space: inherit;
+  white-space: pre;
+  word-break: normal;
+  word-wrap: normal;
 }
 
 /* ==========================================================================
    Nav
    ========================================================================== */
-/* line 78, styles.scss */
+/* line 80, styles.scss */
 .navbar-brand {
   display: block;
   font-size: 18px;
@@ -73,100 +75,100 @@ pre code {
   color: #fff;
 }
 
-/* line 89, styles.scss */
+/* line 91, styles.scss */
 .navbar, .nav-pills > li > a, .btn, .dropdown-menu {
   border-radius: 0;
 }
 
-/* line 94, styles.scss */
+/* line 96, styles.scss */
 html, body {
   height: 100%;
 }
 
-/* line 98, styles.scss */
+/* line 100, styles.scss */
 body {
   padding: 50px 0 0 0;
 }
 
-/* line 102, styles.scss */
+/* line 104, styles.scss */
 .navbar-toggle {
   float: left;
   margin-left: 15px;
 }
 
 @media (min-width: 0) {
-  /* line 108, styles.scss */
+  /* line 110, styles.scss */
   .navbar-toggle {
     display: block;
     /* force showing the toggle */
   }
 }
 @media (min-width: 992px) {
-  /* line 114, styles.scss */
+  /* line 116, styles.scss */
   body {
     padding: 0;
   }
 
-  /* line 117, styles.scss */
+  /* line 119, styles.scss */
   .navbar {
     right: auto;
     background: none;
     border: none;
   }
 }
-/* line 125, styles.scss */
+/* line 127, styles.scss */
 .dropdown-header {
   padding: 3px 15px;
 }
 
-/* line 129, styles.scss */
+/* line 131, styles.scss */
 .dropdown-menu {
   font-size: 12px;
 }
 
-/* line 133, styles.scss */
+/* line 135, styles.scss */
 .dropdown-menu > li > a {
   white-space: pre-wrap;
   padding: 10px 15px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
-/* line 138, styles.scss */
+/* line 140, styles.scss */
 .dropdown-menu > li > a:hover {
   color: #fff;
 }
 
-/* line 146, styles.scss */
+/* line 148, styles.scss */
 .dropdown-menu > li:hover {
   color: #fff;
   background: #333;
 }
-/* line 150, styles.scss */
+/* line 152, styles.scss */
 .dropdown-menu > li:hover a {
   color: #fff;
 }
-/* line 156, styles.scss */
+/* line 158, styles.scss */
 .dropdown-menu > li:last-child a {
   border-bottom: 0;
 }
 
-/* line 162, styles.scss */
+/* line 164, styles.scss */
 .navmenu-default .navmenu-nav.dropdown-menu, .navbar-default .navbar-offcanvas .navmenu-nav.dropdown-menu {
   background-color: #414141;
 }
 
-/* line 166, styles.scss */
+/* line 168, styles.scss */
 .navmenu-default .navmenu-nav.dropdown-menu > .active > a, .navbar-default .navbar-offcanvas .navmenu-nav.dropdown-menu > .active > a, .navmenu-default .navmenu-nav.dropdown-menu > .active > a:hover, .navbar-default .navbar-offcanvas .navmenu-nav.dropdown-menu > .active > a:hover, .navmenu-default .navmenu-nav.dropdown-menu > .active > a:focus, .navbar-default .navbar-offcanvas .navmenu-nav.dropdown-menu > .active > a:focus {
   color: #fff;
   background: #393939;
 }
 
-/* line 171, styles.scss */
+/* line 173, styles.scss */
 .navmenu-default .navmenu-nav > li > a:hover, .navbar-default .navbar-offcanvas .navmenu-nav > li > a:hover, .navmenu-default .navmenu-nav > li > a:focus, .navbar-default .navbar-offcanvas .navmenu-nav > li > a:focus {
   color: #fff;
   background: #393939;
 }
 
-/* line 179, styles.scss */
+/* line 181, styles.scss */
 .navbar-default .navbar-toggle {
   border-radius: 0;
   float: left;
@@ -176,16 +178,16 @@ body {
   color: #fff;
   border: none;
 }
-/* line 188, styles.scss */
+/* line 190, styles.scss */
 .navbar-default .navbar-toggle .icon-bar {
   background-color: white;
 }
-/* line 193, styles.scss */
+/* line 195, styles.scss */
 .navbar-default .navbar-toggle:hover .icon-bar {
   background-color: black;
 }
 
-/* line 204, styles.scss */
+/* line 206, styles.scss */
 .navmenu-default .navmenu-nav > .open > a, .navbar-default .navbar-offcanvas .navmenu-nav > .open > a, .navmenu-default .navmenu-nav > .open > a:hover, .navbar-default .navbar-offcanvas .navmenu-nav > .open > a:hover, .navmenu-default .navmenu-nav > .open > a:focus, .navbar-default .navbar-offcanvas .navmenu-nav > .open > a:focus {
   background: none;
   color: #fff;
@@ -193,7 +195,7 @@ body {
   border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-/* line 212, styles.scss */
+/* line 214, styles.scss */
 .navmenu-default, .navbar-default .navbar-offcanvas {
   background-color: #333333;
 }
@@ -201,39 +203,39 @@ body {
 /* ==========================================================================
    Overview (Index)
    ========================================================================== */
-/* line 227, styles.scss */
+/* line 229, styles.scss */
 .overview h1 {
   margin-bottom: 40px;
 }
-/* line 231, styles.scss */
+/* line 233, styles.scss */
 .overview ul.list {
   list-style-type: none;
   padding: 0;
   margin-left: 0;
 }
-/* line 237, styles.scss */
+/* line 239, styles.scss */
 .overview ul.list li {
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   margin-bottom: 20px;
   padding-bottom: 20px;
 }
 
-/* line 246, styles.scss */
+/* line 248, styles.scss */
 .sub-nav {
   margin: 20px 0;
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   border-top: 1px solid rgba(0, 0, 0, 0.1);
   padding: 20px 0;
 }
-/* line 252, styles.scss */
+/* line 254, styles.scss */
 .sub-nav li {
   margin-right: 20px;
 }
-/* line 256, styles.scss */
+/* line 258, styles.scss */
 .sub-nav li .btn {
   height: 45px;
 }
-/* line 261, styles.scss */
+/* line 263, styles.scss */
 .sub-nav .search {
   height: 45px;
   border: 1px solid #CCCCCC;
@@ -243,11 +245,11 @@ body {
 /* ==========================================================================
    Table of Contents
    ========================================================================== */
-/* line 275, styles.scss */
+/* line 277, styles.scss */
 .toc-wrap {
   margin-top: 40px;
 }
-/* line 279, styles.scss */
+/* line 281, styles.scss */
 .toc-wrap .btn {
   width: 100%;
   text-align: left;
@@ -256,46 +258,46 @@ body {
   margin-bottom: 1px;
   color: #333333;
 }
-/* line 287, styles.scss */
+/* line 289, styles.scss */
 .toc-wrap .btn:hover {
   background-color: #333333;
   color: #fff;
 }
 
-/* line 296, styles.scss */
+/* line 298, styles.scss */
 #demo {
   background-color: #f6f6f6;
   padding: 20px;
 }
 
-/* line 304, styles.scss */
+/* line 306, styles.scss */
 .toc ul {
   margin: 0;
   padding: 0;
   list-style: none;
 }
-/* line 311, styles.scss */
+/* line 313, styles.scss */
 .toc li {
   padding: 0;
   border-bottom: 1px solid #DDDDDD;
   padding: 0.5em 0;
 }
-/* line 322, styles.scss */
+/* line 324, styles.scss */
 .toc a {
   display: block;
 }
-/* line 325, styles.scss */
+/* line 327, styles.scss */
 .toc a:hover {
   color: #000;
 }
-/* line 331, styles.scss */
+/* line 333, styles.scss */
 .toc .h1, .toc .h2, .toc .h3 {
   font-weight: normal;
   font-size: 12px;
   margin: 0;
   list-style: none;
 }
-/* line 337, styles.scss */
+/* line 339, styles.scss */
 .toc .h2, .toc .h3 {
   display: none;
 }
@@ -303,416 +305,416 @@ body {
 /* ==========================================================================
    Solarized
    ========================================================================== */
-/* line 360, styles.scss */
+/* line 362, styles.scss */
 .highlight {
   background-color: #ffffcc;
 }
 
-/* line 361, styles.scss */
+/* line 363, styles.scss */
 .highlight .c {
   color: #586E75;
 }
 
 /* Comment */
-/* line 362, styles.scss */
+/* line 364, styles.scss */
 .highlight .err {
   color: #93A1A1;
 }
 
 /* Error */
-/* line 363, styles.scss */
+/* line 365, styles.scss */
 .highlight .g {
   color: #93A1A1;
 }
 
 /* Generic */
-/* line 364, styles.scss */
+/* line 366, styles.scss */
 .highlight .k {
   color: #859900;
 }
 
 /* Keyword */
-/* line 365, styles.scss */
+/* line 367, styles.scss */
 .highlight .l {
   color: #93A1A1;
 }
 
 /* Literal */
-/* line 366, styles.scss */
+/* line 368, styles.scss */
 .highlight .n {
   color: #93A1A1;
 }
 
 /* Name */
-/* line 367, styles.scss */
+/* line 369, styles.scss */
 .highlight .o {
   color: #859900;
 }
 
 /* Operator */
-/* line 368, styles.scss */
+/* line 370, styles.scss */
 .highlight .x {
   color: #CB4B16;
 }
 
 /* Other */
-/* line 369, styles.scss */
+/* line 371, styles.scss */
 .highlight .p {
   color: #93A1A1;
 }
 
 /* Punctuation */
-/* line 370, styles.scss */
+/* line 372, styles.scss */
 .highlight .cm {
   color: #586E75;
 }
 
 /* Comment.Multiline */
-/* line 371, styles.scss */
+/* line 373, styles.scss */
 .highlight .cp {
   color: #859900;
 }
 
 /* Comment.Preproc */
-/* line 372, styles.scss */
+/* line 374, styles.scss */
 .highlight .c1 {
   color: #586E75;
 }
 
 /* Comment.Single */
-/* line 373, styles.scss */
+/* line 375, styles.scss */
 .highlight .cs {
   color: #859900;
 }
 
 /* Comment.Special */
-/* line 374, styles.scss */
+/* line 376, styles.scss */
 .highlight .gd {
   color: #2AA198;
 }
 
 /* Generic.Deleted */
-/* line 375, styles.scss */
+/* line 377, styles.scss */
 .highlight .ge {
   color: #93A1A1;
   font-style: italic;
 }
 
 /* Generic.Emph */
-/* line 376, styles.scss */
+/* line 378, styles.scss */
 .highlight .gr {
   color: #DC322F;
 }
 
 /* Generic.Error */
-/* line 377, styles.scss */
+/* line 379, styles.scss */
 .highlight .gh {
   color: #CB4B16;
 }
 
 /* Generic.Heading */
-/* line 378, styles.scss */
+/* line 380, styles.scss */
 .highlight .gi {
   color: #859900;
 }
 
 /* Generic.Inserted */
-/* line 379, styles.scss */
+/* line 381, styles.scss */
 .highlight .go {
   color: #93A1A1;
 }
 
 /* Generic.Output */
-/* line 380, styles.scss */
+/* line 382, styles.scss */
 .highlight .gp {
   color: #93A1A1;
 }
 
 /* Generic.Prompt */
-/* line 381, styles.scss */
+/* line 383, styles.scss */
 .highlight .gs {
   color: #93A1A1;
   font-weight: bold;
 }
 
 /* Generic.Strong */
-/* line 382, styles.scss */
+/* line 384, styles.scss */
 .highlight .gu {
   color: #CB4B16;
 }
 
 /* Generic.Subheading */
-/* line 383, styles.scss */
+/* line 385, styles.scss */
 .highlight .gt {
   color: #93A1A1;
 }
 
 /* Generic.Traceback */
-/* line 384, styles.scss */
+/* line 386, styles.scss */
 .highlight .kc {
   color: #CB4B16;
 }
 
 /* Keyword.Constant */
-/* line 385, styles.scss */
+/* line 387, styles.scss */
 .highlight .kd {
   color: #268BD2;
 }
 
 /* Keyword.Declaration */
-/* line 386, styles.scss */
+/* line 388, styles.scss */
 .highlight .kn {
   color: #859900;
 }
 
 /* Keyword.Namespace */
-/* line 387, styles.scss */
+/* line 389, styles.scss */
 .highlight .kp {
   color: #859900;
 }
 
 /* Keyword.Pseudo */
-/* line 388, styles.scss */
+/* line 390, styles.scss */
 .highlight .kr {
   color: #268BD2;
 }
 
 /* Keyword.Reserved */
-/* line 389, styles.scss */
+/* line 391, styles.scss */
 .highlight .kt {
   color: #DC322F;
 }
 
 /* Keyword.Type */
-/* line 390, styles.scss */
+/* line 392, styles.scss */
 .highlight .ld {
   color: #93A1A1;
 }
 
 /* Literal.Date */
-/* line 391, styles.scss */
+/* line 393, styles.scss */
 .highlight .m {
   color: #2AA198;
 }
 
 /* Literal.Number */
-/* line 392, styles.scss */
+/* line 394, styles.scss */
 .highlight .s {
   color: #2AA198;
 }
 
 /* Literal.String */
-/* line 393, styles.scss */
+/* line 395, styles.scss */
 .highlight .na {
   color: #93A1A1;
 }
 
 /* Name.Attribute */
-/* line 394, styles.scss */
+/* line 396, styles.scss */
 .highlight .nb {
   color: #B58900;
 }
 
 /* Name.Builtin */
-/* line 395, styles.scss */
+/* line 397, styles.scss */
 .highlight .nc {
   color: #268BD2;
 }
 
 /* Name.Class */
-/* line 396, styles.scss */
+/* line 398, styles.scss */
 .highlight .no {
   color: #CB4B16;
 }
 
 /* Name.Constant */
-/* line 397, styles.scss */
+/* line 399, styles.scss */
 .highlight .nd {
   color: #268BD2;
 }
 
 /* Name.Decorator */
-/* line 398, styles.scss */
+/* line 400, styles.scss */
 .highlight .ni {
   color: #CB4B16;
 }
 
 /* Name.Entity */
-/* line 399, styles.scss */
+/* line 401, styles.scss */
 .highlight .ne {
   color: #CB4B16;
 }
 
 /* Name.Exception */
-/* line 400, styles.scss */
+/* line 402, styles.scss */
 .highlight .nf {
   color: #268BD2;
 }
 
 /* Name.Function */
-/* line 401, styles.scss */
+/* line 403, styles.scss */
 .highlight .nl {
   color: #93A1A1;
 }
 
 /* Name.Label */
-/* line 402, styles.scss */
+/* line 404, styles.scss */
 .highlight .nn {
   color: #93A1A1;
 }
 
 /* Name.Namespace */
-/* line 403, styles.scss */
+/* line 405, styles.scss */
 .highlight .nx {
   color: #93A1A1;
 }
 
 /* Name.Other */
-/* line 404, styles.scss */
+/* line 406, styles.scss */
 .highlight .py {
   color: #93A1A1;
 }
 
 /* Name.Property */
-/* line 405, styles.scss */
+/* line 407, styles.scss */
 .highlight .nt {
   color: #268BD2;
 }
 
 /* Name.Tag */
-/* line 406, styles.scss */
+/* line 408, styles.scss */
 .highlight .nv {
   color: #268BD2;
 }
 
 /* Name.Variable */
-/* line 407, styles.scss */
+/* line 409, styles.scss */
 .highlight .ow {
   color: #859900;
 }
 
 /* Operator.Word */
-/* line 408, styles.scss */
+/* line 410, styles.scss */
 .highlight .w {
   color: #93A1A1;
 }
 
 /* Text.Whitespace */
-/* line 409, styles.scss */
+/* line 411, styles.scss */
 .highlight .mf {
   color: #2AA198;
 }
 
 /* Literal.Number.Float */
-/* line 410, styles.scss */
+/* line 412, styles.scss */
 .highlight .mh {
   color: #2AA198;
 }
 
 /* Literal.Number.Hex */
-/* line 411, styles.scss */
+/* line 413, styles.scss */
 .highlight .mi {
   color: #2AA198;
 }
 
 /* Literal.Number.Integer */
-/* line 412, styles.scss */
+/* line 414, styles.scss */
 .highlight .mo {
   color: #2AA198;
 }
 
 /* Literal.Number.Oct */
-/* line 413, styles.scss */
+/* line 415, styles.scss */
 .highlight .sb {
   color: #586E75;
 }
 
 /* Literal.String.Backtick */
-/* line 414, styles.scss */
+/* line 416, styles.scss */
 .highlight .sc {
   color: #2AA198;
 }
 
 /* Literal.String.Char */
-/* line 415, styles.scss */
+/* line 417, styles.scss */
 .highlight .sd {
   color: #93A1A1;
 }
 
 /* Literal.String.Doc */
-/* line 416, styles.scss */
+/* line 418, styles.scss */
 .highlight .s2 {
   color: #2AA198;
 }
 
 /* Literal.String.Double */
-/* line 417, styles.scss */
+/* line 419, styles.scss */
 .highlight .se {
   color: #CB4B16;
 }
 
 /* Literal.String.Escape */
-/* line 418, styles.scss */
+/* line 420, styles.scss */
 .highlight .sh {
   color: #93A1A1;
 }
 
 /* Literal.String.Heredoc */
-/* line 419, styles.scss */
+/* line 421, styles.scss */
 .highlight .si {
   color: #2AA198;
 }
 
 /* Literal.String.Interpol */
-/* line 420, styles.scss */
+/* line 422, styles.scss */
 .highlight .sx {
   color: #2AA198;
 }
 
 /* Literal.String.Other */
-/* line 421, styles.scss */
+/* line 423, styles.scss */
 .highlight .sr {
   color: #DC322F;
 }
 
 /* Literal.String.Regex */
-/* line 422, styles.scss */
+/* line 424, styles.scss */
 .highlight .s1 {
   color: #2AA198;
 }
 
 /* Literal.String.Single */
-/* line 423, styles.scss */
+/* line 425, styles.scss */
 .highlight .ss {
   color: #2AA198;
 }
 
 /* Literal.String.Symbol */
-/* line 424, styles.scss */
+/* line 426, styles.scss */
 .highlight .bp {
   color: #268BD2;
 }
 
 /* Name.Builtin.Pseudo */
-/* line 425, styles.scss */
+/* line 427, styles.scss */
 .highlight .vc {
   color: #268BD2;
 }
 
 /* Name.Variable.Class */
-/* line 426, styles.scss */
+/* line 428, styles.scss */
 .highlight .vg {
   color: #268BD2;
 }
 
 /* Name.Variable.Global */
-/* line 427, styles.scss */
+/* line 429, styles.scss */
 .highlight .vi {
   color: #268BD2;
 }
 
 /* Name.Variable.Instance */
-/* line 428, styles.scss */
+/* line 430, styles.scss */
 .highlight .il {
   color: #2AA198;
 }
