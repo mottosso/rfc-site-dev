@@ -66,6 +66,10 @@
 		z-index:9000;
 	}
 
+	pre code {
+		white-space: inherit; //prevent code from wrapping
+	}
+
 
 /* ==========================================================================
    Nav
