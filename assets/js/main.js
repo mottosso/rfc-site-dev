@@ -1,7 +1,7 @@
 $(document).ready(function() {
 	tableofContents();
 	overviewPage();
-	$("#loading").hide();
+	//$("#loading").hide();
 });
 
 
@@ -14,7 +14,7 @@ jQuery(document).ready(function() {
 	$(document).delegate('a[href^="/"],a[href^="'+siteUrl+'"]', "click", function(e) {
 		e.preventDefault();
 		History.pushState({}, "", this.pathname);
-		$("#loading").show();
+		//$("#loading").show();
 	});
 
 	History.Adapter.bind(window, 'statechange', function(){
@@ -33,8 +33,8 @@ jQuery(document).ready(function() {
 			
 
 
-			 $( "#loading" ).fadeOut( "slow", function() {	
-			});
+			 //$( "#loading" ).fadeOut( "slow", function() {	
+			//});
 
 		});
 	});
