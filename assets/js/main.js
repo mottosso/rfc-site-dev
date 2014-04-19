@@ -1,44 +1,47 @@
 $(document).ready(function() {
 	tableofContents();
 	overviewPage();
-	//$("#loading").hide();
 });
 
 
-//	HISTORICIZE AND AJAXIFY OUR SITE
-jQuery(document).ready(function() {
-	var siteUrl = 'http://'+(document.location.hostname||document.location.host);
-
-	//	Catch all internally-focused links and push a new state.
-	//	Note: External links will not be affected by this behavior.
-	$(document).delegate('a[href^="/"],a[href^="'+siteUrl+'"]', "click", function(e) {
-		e.preventDefault();
-		History.pushState({}, "", this.pathname);
-		//$("#loading").show();
-	});
-
-	History.Adapter.bind(window, 'statechange', function(){
-		var State = History.getState();
-		$.get(State.url, function(data){	// Use AJAX to get the new content.
-			document.title = data.match(/<title>(.*?)<\/title>/)[1];
-			$('.content').html($(data).find('.content')); 	// Pull the post we want out of the .content class.
-															// If you change the class of the post container,
-															// you must change it here!!!
-			_gaq.push(['_trackPageview', State.url]);	// This updates Google Analytics with a visit to the new page.
-														// If you don't use Google Analytics, you can safety comment or
-														// remove that line.
-
-            tableofContents(); //init toc function
-			overviewPage(); //init overview function
-			
+$(function(){
 
 
-			 //$( "#loading" ).fadeOut( "slow", function() {	
-			//});
+	if ($("#overviewlist")[0]){
 
+	  $('#overviewlist').mixItUp({
+	  	selectors: {
+			target: 'li'
+		},
+	  	animation: {
+	  		effects: 'fade'
+	  	},
+	  	layout: {
+			display: 'block'
+		},
+	    load: {
+	      filter: '.raw, .draft, .retired',
+	      sort: 'myorder:desc'
+	    },
+	    controls: {
+	      toggleFilterButtons: true
+	    }
+	  });
+
+
+		$("#menu").stickOnScroll({
+		    topOffset: 60,
+		    setParentOnStick:   true,
+		    setWidthOnStick:    true
 		});
-	});
+
+
+
+	}
+
+
 });
+
 
 
 function tableofContents() {
@@ -63,42 +66,42 @@ function tableofContents() {
 }
 
 function overviewPage(){
-	if ($("#overview")[0]){
-		var options = {
-		  valueNames: [ 'date', 'state', 'title', 'summary', 'tags'  ]
-		};
+	// if ($("#overview")[0]){
+	// 	var options = {
+	// 	  valueNames: [ 'date', 'state', 'title', 'summary', 'tags'  ]
+	// 	};
 
-		var overviewList = new List('overview', options);
+	// 	var overviewList = new List('overview', options);
 
-		overviewList.sort('date', { order: "desc" }); // Sorts the list in zxy-order based on names
+	// 	overviewList.sort('date', { order: "desc" }); // Sorts the list in zxy-order based on names
 
 
-		$('#filter-draft').click(function() {
-		  overviewList.filter(function(item) {
-		    if (item.values().state == "draft") {
-		      return true;
-		    } else {
-		      return false;
-		    }
-		  });
-		  return false;
-		});
+	// 	$('#filter-draft').click(function() {
+	// 	  overviewList.filter(function(item) {
+	// 	    if (item.values().state == "draft") {
+	// 	      return true;
+	// 	    } else {
+	// 	      return false;
+	// 	    }
+	// 	  });
+	// 	  return false;
+	// 	});
 
-		$('#filter-raw').click(function() {
-		  overviewList.filter(function(item) {
-		    if (item.values().state == "raw") {
-		      return true;
-		    } else {
-		      return false;
-		    }
-		  });
-		  return false;
-		});
-		$('#filter-none').click(function() {
-		  overviewList.filter();
-		  return false;
-		});
+	// 	$('#filter-raw').click(function() {
+	// 	  overviewList.filter(function(item) {
+	// 	    if (item.values().state == "raw") {
+	// 	      return true;
+	// 	    } else {
+	// 	      return false;
+	// 	    }
+	// 	  });
+	// 	  return false;
+	// 	});
+	// 	$('#filter-none').click(function() {
+	// 	  overviewList.filter();
+	// 	  return false;
+	// 	});
 
-		$('.dropdown-toggle').dropdown()
-	}
+	// 	$('.dropdown-toggle').dropdown()
+	// }
 }
