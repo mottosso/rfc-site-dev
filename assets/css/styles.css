@@ -49,65 +49,64 @@
 
 /* line 62, styles.scss */
 div {
-  font-size: 16px;
-  font-family: "ff-meta-serif-web-pro", Baskerville, "Baskerville Old Face", "Hoefler Text", Garamond, "Times New Roman", serif;
+  font-size: 14px;
 }
 
-/* line 67, styles.scss */
+/* line 69, styles.scss */
 a:hover, a:active, a:focus {
   outline: 0;
 }
 
-/* line 71, styles.scss */
+/* line 73, styles.scss */
 h1, h2, h3, h4 {
   font-family: "ff-din-web", Helvetica, Arial, sans-serif;
 }
 
-/* line 75, styles.scss */
+/* line 77, styles.scss */
 h1, .h1, h2, .h2, h3, .h3, h4, .h4 {
   margin-top: 40px;
 }
 
-/* line 79, styles.scss */
+/* line 81, styles.scss */
 h1 {
   margin-bottom: 0;
   margin-top: 40px;
   padding-bottom: 10px;
 }
 
-/* line 86, styles.scss */
+/* line 88, styles.scss */
 h1, .h1 {
   font-size: 28px;
 }
 
-/* line 95, styles.scss */
+/* line 97, styles.scss */
 code, kbd, pre, samp {
   font-family: 'Source Code Pro',Menlo,Monaco,Consolas,"Courier New",monospace;
 }
 
-/* line 100, styles.scss */
+/* line 102, styles.scss */
 img {
   width: 100%;
   height: auto;
 }
 
-/* line 105, styles.scss */
+/* line 107, styles.scss */
 .highlight {
   margin: 20px 0;
 }
 
-/* line 110, styles.scss */
+/* line 112, styles.scss */
 .container {
   margin-left: 0;
   margin-right: 0;
 }
 
-/* line 116, styles.scss */
+/* line 118, styles.scss */
 .navbar {
   z-index: 9999;
 }
 
-/* line 120, styles.scss */
+/* line 122, styles.scss */
 #loading1 {
   background: #fff;
   position: fixed;
@@ -116,7 +115,7 @@ img {
   z-index: 9000;
 }
 
-/* line 128, styles.scss */
+/* line 130, styles.scss */
 pre code {
   white-space: pre;
   word-break: normal;
@@ -126,7 +125,7 @@ pre code {
 /* ==========================================================================
    Nav
    ========================================================================== */
-/* line 142, styles.scss */
+/* line 144, styles.scss */
 .navbar-brand {
   width: 100px;
   height: 58px;
@@ -137,70 +136,70 @@ pre code {
   margin-top: 13px;
 }
 
-/* line 152, styles.scss */
+/* line 154, styles.scss */
 .navbar > .container .navbar-brand, .navbar > .container-fluid .navbar-brand {
   margin-left: -5px;
 }
 
-/* line 156, styles.scss */
+/* line 158, styles.scss */
 .navbar, .nav-pills > li > a, .btn, .dropdown-menu {
   border-radius: 0;
 }
 
-/* line 163, styles.scss */
+/* line 165, styles.scss */
 .dropdown-header {
   padding: 3px 15px;
 }
 
-/* line 167, styles.scss */
+/* line 169, styles.scss */
 .dropdown-menu {
   font-size: 12px;
 }
 
-/* line 171, styles.scss */
+/* line 173, styles.scss */
 .dropdown-menu > li > a {
   white-space: pre-wrap;
   padding: 10px 15px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
-/* line 176, styles.scss */
+/* line 178, styles.scss */
 .dropdown-menu > li > a:hover {
   color: #fff;
 }
 
-/* line 184, styles.scss */
+/* line 186, styles.scss */
 .dropdown-menu > li:hover {
   color: #fff;
   background: #333;
 }
-/* line 188, styles.scss */
+/* line 190, styles.scss */
 .dropdown-menu > li:hover a {
   color: #fff;
 }
-/* line 194, styles.scss */
+/* line 196, styles.scss */
 .dropdown-menu > li:last-child a {
   border-bottom: 0;
 }
 
-/* line 201, styles.scss */
+/* line 203, styles.scss */
 .navbar {
   min-height: 50px;
 }
 
-/* line 205, styles.scss */
+/* line 207, styles.scss */
 .navbar-default {
   background: #fff;
   border: none;
 }
 
-/* line 211, styles.scss */
+/* line 213, styles.scss */
 .navbar-nav {
   margin-left: 40px;
   margin-top: 20px;
   font-family: "ff-din-web", Helvetica, Arial, sans-serif;
 }
 
-/* line 218, styles.scss */
+/* line 220, styles.scss */
 .navbar-nav > li > a, .navbar-nav.controls button {
   padding: 0;
   background: none;
@@ -209,75 +208,75 @@ pre code {
   text-transform: uppercase;
   color: #000;
 }
-/* line 226, styles.scss */
+/* line 228, styles.scss */
 .navbar-nav > li > a:hover, .navbar-nav.controls button:hover {
   border-bottom: 1px solid #000;
 }
 
-/* line 233, styles.scss */
+/* line 235, styles.scss */
 .navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
   background: none;
   border-bottom: 1px solid #000;
 }
 
-/* line 239, styles.scss */
+/* line 241, styles.scss */
 .beforeMenu {
   z-index: 100;
 }
 
-/* line 243, styles.scss */
+/* line 245, styles.scss */
 #menu {
   background-color: #fff;
   min-height: 50px;
   z-index: 100;
 }
 
-/* line 250, styles.scss */
+/* line 252, styles.scss */
 .navbar-nav.controls {
   margin-top: 0;
   margin-left: 0;
 }
-/* line 255, styles.scss */
+/* line 257, styles.scss */
 .navbar-nav.controls .lastModified {
   margin-left: 40px;
 }
-/* line 259, styles.scss */
+/* line 261, styles.scss */
 .navbar-nav.controls .circle:before {
   font-size: 18px;
 }
-/* line 264, styles.scss */
+/* line 266, styles.scss */
 .navbar-nav.controls .sort span {
   font-size: 12px;
   vertical-align: top;
 }
-/* line 271, styles.scss */
+/* line 273, styles.scss */
 .navbar-nav.controls label {
   font-weight: normal;
   margin-right: 20px;
 }
-/* line 276, styles.scss */
+/* line 278, styles.scss */
 .navbar-nav.controls .btn {
   border: none;
   line-height: 20px;
   vertical-align: top;
 }
-/* line 282, styles.scss */
+/* line 284, styles.scss */
 .navbar-nav.controls .btn:active, .navbar-nav.controls .btn.active {
   box-shadow: none;
   border-bottom: 1px solid #000000;
 }
 
-/* line 293, styles.scss */
+/* line 295, styles.scss */
 button.active {
   background: #68b8c4;
 }
 
-/* line 297, styles.scss */
+/* line 299, styles.scss */
 button:focus {
   outline: 0 none;
 }
 
-/* line 302, styles.scss */
+/* line 304, styles.scss */
 #overviewlist li {
   display: none;
 }
@@ -285,19 +284,19 @@ button:focus {
 /* ==========================================================================
    Sticky footer styles
    ========================================================================== */
-/* line 310, styles.scss */
+/* line 312, styles.scss */
 html {
   position: relative;
   min-height: 100%;
 }
 
-/* line 314, styles.scss */
+/* line 316, styles.scss */
 body {
   /* Margin bottom by footer height */
   margin-bottom: 60px;
 }
 
-/* line 318, styles.scss */
+/* line 320, styles.scss */
 #footer1 {
   position: absolute;
   bottom: 0;
@@ -310,7 +309,7 @@ body {
 /* ==========================================================================
    Sidebar
    ========================================================================== */
-/* line 337, styles.scss */
+/* line 339, styles.scss */
 #sidebar .btn {
   font-family: "ff-din-web", Helvetica, Arial, sans-serif;
 }
@@ -318,119 +317,128 @@ body {
 /* ==========================================================================
    Overview (Index)
    ========================================================================== */
-/* line 351, styles.scss */
+/* line 349, styles.scss */
+.beforeList {
+  margin-bottom: 0;
+}
+
+/* line 355, styles.scss */
 .overview h1 {
   margin-bottom: 40px;
 }
-/* line 355, styles.scss */
+/* line 359, styles.scss */
 .overview ul.list {
   list-style-type: none;
   padding: 0;
   margin-left: 0;
 }
-/* line 361, styles.scss */
+/* line 365, styles.scss */
 .overview ul.list li {
   border-bottom: 1px solid #EEEEEE;
-}
-/* line 365, styles.scss */
-.overview ul.list li a {
   padding-top: 20px;
   padding-bottom: 20px;
   width: 100%;
   display: block;
   color: #333;
 }
-/* line 372, styles.scss */
-.overview ul.list li a:hover {
+/* line 374, styles.scss */
+.overview ul.list li:hover {
   background-color: #f8f8f8;
-  transition: background .45s ease-in;
-  -moz-transition: background .45s ease-in;
-  -webkit-transition: background .45s ease-in;
 }
-/* line 381, styles.scss */
+/* line 378, styles.scss */
+.overview ul.list li a {
+  color: #333;
+}
+/* line 385, styles.scss */
 .overview ul.list li p {
   margin-bottom: 0;
 }
-/* line 386, styles.scss */
+/* line 390, styles.scss */
 .overview ul.list li .summary {
   opacity: 0.6;
 }
-/* line 391, styles.scss */
+/* line 395, styles.scss */
 .overview ul.list li h4 {
   margin-top: 0;
 }
-/* line 396, styles.scss */
+/* line 400, styles.scss */
 .overview ul.list li .title {
   font-family: "ff-din-web", Helvetica, Arial, sans-serif;
 }
-/* line 400, styles.scss */
+/* line 405, styles.scss */
+.overview ul.list li .title.number a:hover {
+  text-decoration: none;
+}
+/* line 410, styles.scss */
 .overview ul.list li:last-child {
   border-bottom: none;
 }
-/* line 405, styles.scss */
+/* line 415, styles.scss */
 .overview ul.list li .meta-content {
   opacity: 0;
 }
-/* line 411, styles.scss */
+/* line 421, styles.scss */
 .overview ul.list li:hover .meta-content {
   opacity: 1;
-  transition: opacity 1s ease-in;
-  -moz-transition: opacity 1s ease-in;
-  -webkit-transition: opacity 1s ease-in;
 }
 
-/* line 426, styles.scss */
+/* line 433, styles.scss */
 .sub-nav {
   margin: 20px 0;
   padding: 20px 0;
 }
-/* line 430, styles.scss */
+/* line 437, styles.scss */
 .sub-nav li {
   margin-right: 20px;
 }
-/* line 434, styles.scss */
+/* line 441, styles.scss */
 .sub-nav li .btn {
   height: 45px;
 }
-/* line 439, styles.scss */
+/* line 446, styles.scss */
 .sub-nav .search {
   height: 45px;
   border: 1px solid #CCCCCC;
   padding-left: 10px;
 }
 
-/* line 449, styles.scss */
+/* line 456, styles.scss */
 .meta-content div {
-  font-size: 14px;
+  font-size: 12px;
+}
+/* line 460, styles.scss */
+.meta-content div .circle:before {
+  font-size: 16px;
+  line-height: 0;
 }
 
-/* line 457, styles.scss */
+/* line 473, styles.scss */
 .circle:before {
   content: ' \25CF';
   font-size: 16px;
 }
 
-/* line 463, styles.scss */
+/* line 479, styles.scss */
 .circle.raw {
   color: #840420;
 }
-/* line 466, styles.scss */
+/* line 482, styles.scss */
 .circle.draft {
   color: #adc2ad;
 }
-/* line 469, styles.scss */
+/* line 485, styles.scss */
 .circle.stable {
   color: #684622;
 }
-/* line 472, styles.scss */
+/* line 488, styles.scss */
 .circle.legacy {
   color: #bebecf;
 }
-/* line 475, styles.scss */
+/* line 491, styles.scss */
 .circle.retired {
   color: #3e3e3e;
 }
-/* line 478, styles.scss */
+/* line 494, styles.scss */
 .circle.deleted {
   color: #a0a0a0;
 }
@@ -438,11 +446,11 @@ body {
 /* ==========================================================================
    Table of Contents
    ========================================================================== */
-/* line 490, styles.scss */
+/* line 506, styles.scss */
 .toc-wrap {
   margin-top: 40px;
 }
-/* line 494, styles.scss */
+/* line 510, styles.scss */
 .toc-wrap .btn {
   width: 100%;
   text-align: left;
@@ -451,46 +459,46 @@ body {
   margin-bottom: 1px;
   color: #333333;
 }
-/* line 502, styles.scss */
+/* line 518, styles.scss */
 .toc-wrap .btn:hover {
   background-color: #333333;
   color: #fff;
 }
 
-/* line 511, styles.scss */
+/* line 527, styles.scss */
 .collapse-menu {
   background-color: #f6f6f6;
   padding: 20px;
 }
 
-/* line 519, styles.scss */
+/* line 535, styles.scss */
 .toc ul {
   margin: 0;
   padding: 0;
   list-style: none;
 }
-/* line 526, styles.scss */
+/* line 542, styles.scss */
 .toc li {
   padding: 0;
   border-bottom: 1px solid #DDDDDD;
   padding: 0.5em 0;
 }
-/* line 537, styles.scss */
+/* line 553, styles.scss */
 .toc a {
   display: block;
 }
-/* line 540, styles.scss */
+/* line 556, styles.scss */
 .toc a:hover {
   color: #000;
 }
-/* line 546, styles.scss */
+/* line 562, styles.scss */
 .toc .h1, .toc .h2, .toc .h3 {
   font-weight: normal;
   font-size: 13px;
   margin: 0;
   list-style: none;
 }
-/* line 552, styles.scss */
+/* line 568, styles.scss */
 .toc .h2, .toc .h3 {
   display: none;
 }
@@ -498,416 +506,416 @@ body {
 /* ==========================================================================
    Solarized
    ========================================================================== */
-/* line 575, styles.scss */
+/* line 591, styles.scss */
 .highlight {
   background-color: #ffffcc;
 }
 
-/* line 576, styles.scss */
+/* line 592, styles.scss */
 .highlight .c {
   color: #586E75;
 }
 
 /* Comment */
-/* line 577, styles.scss */
+/* line 593, styles.scss */
 .highlight .err {
   color: #93A1A1;
 }
 
 /* Error */
-/* line 578, styles.scss */
+/* line 594, styles.scss */
 .highlight .g {
   color: #93A1A1;
 }
 
 /* Generic */
-/* line 579, styles.scss */
+/* line 595, styles.scss */
 .highlight .k {
   color: #859900;
 }
 
 /* Keyword */
-/* line 580, styles.scss */
+/* line 596, styles.scss */
 .highlight .l {
   color: #93A1A1;
 }
 
 /* Literal */
-/* line 581, styles.scss */
+/* line 597, styles.scss */
 .highlight .n {
   color: #93A1A1;
 }
 
 /* Name */
-/* line 582, styles.scss */
+/* line 598, styles.scss */
 .highlight .o {
   color: #859900;
 }
 
 /* Operator */
-/* line 583, styles.scss */
+/* line 599, styles.scss */
 .highlight .x {
   color: #CB4B16;
 }
 
 /* Other */
-/* line 584, styles.scss */
+/* line 600, styles.scss */
 .highlight .p {
   color: #93A1A1;
 }
 
 /* Punctuation */
-/* line 585, styles.scss */
+/* line 601, styles.scss */
 .highlight .cm {
   color: #586E75;
 }
 
 /* Comment.Multiline */
-/* line 586, styles.scss */
+/* line 602, styles.scss */
 .highlight .cp {
   color: #859900;
 }
 
 /* Comment.Preproc */
-/* line 587, styles.scss */
+/* line 603, styles.scss */
 .highlight .c1 {
   color: #586E75;
 }
 
 /* Comment.Single */
-/* line 588, styles.scss */
+/* line 604, styles.scss */
 .highlight .cs {
   color: #859900;
 }
 
 /* Comment.Special */
-/* line 589, styles.scss */
+/* line 605, styles.scss */
 .highlight .gd {
   color: #2AA198;
 }
 
 /* Generic.Deleted */
-/* line 590, styles.scss */
+/* line 606, styles.scss */
 .highlight .ge {
   color: #93A1A1;
   font-style: italic;
 }
 
 /* Generic.Emph */
-/* line 591, styles.scss */
+/* line 607, styles.scss */
 .highlight .gr {
   color: #DC322F;
 }
 
 /* Generic.Error */
-/* line 592, styles.scss */
+/* line 608, styles.scss */
 .highlight .gh {
   color: #CB4B16;
 }
 
 /* Generic.Heading */
-/* line 593, styles.scss */
+/* line 609, styles.scss */
 .highlight .gi {
   color: #859900;
 }
 
 /* Generic.Inserted */
-/* line 594, styles.scss */
+/* line 610, styles.scss */
 .highlight .go {
   color: #93A1A1;
 }
 
 /* Generic.Output */
-/* line 595, styles.scss */
+/* line 611, styles.scss */
 .highlight .gp {
   color: #93A1A1;
 }
 
 /* Generic.Prompt */
-/* line 596, styles.scss */
+/* line 612, styles.scss */
 .highlight .gs {
   color: #93A1A1;
   font-weight: bold;
 }
 
 /* Generic.Strong */
-/* line 597, styles.scss */
+/* line 613, styles.scss */
 .highlight .gu {
   color: #CB4B16;
 }
 
 /* Generic.Subheading */
-/* line 598, styles.scss */
+/* line 614, styles.scss */
 .highlight .gt {
   color: #93A1A1;
 }
 
 /* Generic.Traceback */
-/* line 599, styles.scss */
+/* line 615, styles.scss */
 .highlight .kc {
   color: #CB4B16;
 }
 
 /* Keyword.Constant */
-/* line 600, styles.scss */
+/* line 616, styles.scss */
 .highlight .kd {
   color: #268BD2;
 }
 
 /* Keyword.Declaration */
-/* line 601, styles.scss */
+/* line 617, styles.scss */
 .highlight .kn {
   color: #859900;
 }
 
 /* Keyword.Namespace */
-/* line 602, styles.scss */
+/* line 618, styles.scss */
 .highlight .kp {
   color: #859900;
 }
 
 /* Keyword.Pseudo */
-/* line 603, styles.scss */
+/* line 619, styles.scss */
 .highlight .kr {
   color: #268BD2;
 }
 
 /* Keyword.Reserved */
-/* line 604, styles.scss */
+/* line 620, styles.scss */
 .highlight .kt {
   color: #DC322F;
 }
 
 /* Keyword.Type */
-/* line 605, styles.scss */
+/* line 621, styles.scss */
 .highlight .ld {
   color: #93A1A1;
 }
 
 /* Literal.Date */
-/* line 606, styles.scss */
+/* line 622, styles.scss */
 .highlight .m {
   color: #2AA198;
 }
 
 /* Literal.Number */
-/* line 607, styles.scss */
+/* line 623, styles.scss */
 .highlight .s {
   color: #2AA198;
 }
 
 /* Literal.String */
-/* line 608, styles.scss */
+/* line 624, styles.scss */
 .highlight .na {
   color: #93A1A1;
 }
 
 /* Name.Attribute */
-/* line 609, styles.scss */
+/* line 625, styles.scss */
 .highlight .nb {
   color: #B58900;
 }
 
 /* Name.Builtin */
-/* line 610, styles.scss */
+/* line 626, styles.scss */
 .highlight .nc {
   color: #268BD2;
 }
 
 /* Name.Class */
-/* line 611, styles.scss */
+/* line 627, styles.scss */
 .highlight .no {
   color: #CB4B16;
 }
 
 /* Name.Constant */
-/* line 612, styles.scss */
+/* line 628, styles.scss */
 .highlight .nd {
   color: #268BD2;
 }
 
 /* Name.Decorator */
-/* line 613, styles.scss */
+/* line 629, styles.scss */
 .highlight .ni {
   color: #CB4B16;
 }
 
 /* Name.Entity */
-/* line 614, styles.scss */
+/* line 630, styles.scss */
 .highlight .ne {
   color: #CB4B16;
 }
 
 /* Name.Exception */
-/* line 615, styles.scss */
+/* line 631, styles.scss */
 .highlight .nf {
   color: #268BD2;
 }
 
 /* Name.Function */
-/* line 616, styles.scss */
+/* line 632, styles.scss */
 .highlight .nl {
   color: #93A1A1;
 }
 
 /* Name.Label */
-/* line 617, styles.scss */
+/* line 633, styles.scss */
 .highlight .nn {
   color: #93A1A1;
 }
 
 /* Name.Namespace */
-/* line 618, styles.scss */
+/* line 634, styles.scss */
 .highlight .nx {
   color: #93A1A1;
 }
 
 /* Name.Other */
-/* line 619, styles.scss */
+/* line 635, styles.scss */
 .highlight .py {
   color: #93A1A1;
 }
 
 /* Name.Property */
-/* line 620, styles.scss */
+/* line 636, styles.scss */
 .highlight .nt {
   color: #268BD2;
 }
 
 /* Name.Tag */
-/* line 621, styles.scss */
+/* line 637, styles.scss */
 .highlight .nv {
   color: #268BD2;
 }
 
 /* Name.Variable */
-/* line 622, styles.scss */
+/* line 638, styles.scss */
 .highlight .ow {
   color: #859900;
 }
 
 /* Operator.Word */
-/* line 623, styles.scss */
+/* line 639, styles.scss */
 .highlight .w {
   color: #93A1A1;
 }
 
 /* Text.Whitespace */
-/* line 624, styles.scss */
+/* line 640, styles.scss */
 .highlight .mf {
   color: #2AA198;
 }
 
 /* Literal.Number.Float */
-/* line 625, styles.scss */
+/* line 641, styles.scss */
 .highlight .mh {
   color: #2AA198;
 }
 
 /* Literal.Number.Hex */
-/* line 626, styles.scss */
+/* line 642, styles.scss */
 .highlight .mi {
   color: #2AA198;
 }
 
 /* Literal.Number.Integer */
-/* line 627, styles.scss */
+/* line 643, styles.scss */
 .highlight .mo {
   color: #2AA198;
 }
 
 /* Literal.Number.Oct */
-/* line 628, styles.scss */
+/* line 644, styles.scss */
 .highlight .sb {
   color: #586E75;
 }
 
 /* Literal.String.Backtick */
-/* line 629, styles.scss */
+/* line 645, styles.scss */
 .highlight .sc {
   color: #2AA198;
 }
 
 /* Literal.String.Char */
-/* line 630, styles.scss */
+/* line 646, styles.scss */
 .highlight .sd {
   color: #93A1A1;
 }
 
 /* Literal.String.Doc */
-/* line 631, styles.scss */
+/* line 647, styles.scss */
 .highlight .s2 {
   color: #2AA198;
 }
 
 /* Literal.String.Double */
-/* line 632, styles.scss */
+/* line 648, styles.scss */
 .highlight .se {
   color: #CB4B16;
 }
 
 /* Literal.String.Escape */
-/* line 633, styles.scss */
+/* line 649, styles.scss */
 .highlight .sh {
   color: #93A1A1;
 }
 
 /* Literal.String.Heredoc */
-/* line 634, styles.scss */
+/* line 650, styles.scss */
 .highlight .si {
   color: #2AA198;
 }
 
 /* Literal.String.Interpol */
-/* line 635, styles.scss */
+/* line 651, styles.scss */
 .highlight .sx {
   color: #2AA198;
 }
 
 /* Literal.String.Other */
-/* line 636, styles.scss */
+/* line 652, styles.scss */
 .highlight .sr {
   color: #DC322F;
 }
 
 /* Literal.String.Regex */
-/* line 637, styles.scss */
+/* line 653, styles.scss */
 .highlight .s1 {
   color: #2AA198;
 }
 
 /* Literal.String.Single */
-/* line 638, styles.scss */
+/* line 654, styles.scss */
 .highlight .ss {
   color: #2AA198;
 }
 
 /* Literal.String.Symbol */
-/* line 639, styles.scss */
+/* line 655, styles.scss */
 .highlight .bp {
   color: #268BD2;
 }
 
 /* Name.Builtin.Pseudo */
-/* line 640, styles.scss */
+/* line 656, styles.scss */
 .highlight .vc {
   color: #268BD2;
 }
 
 /* Name.Variable.Class */
-/* line 641, styles.scss */
+/* line 657, styles.scss */
 .highlight .vg {
   color: #268BD2;
 }
 
 /* Name.Variable.Global */
-/* line 642, styles.scss */
+/* line 658, styles.scss */
 .highlight .vi {
   color: #268BD2;
 }
 
 /* Name.Variable.Instance */
-/* line 643, styles.scss */
+/* line 659, styles.scss */
 .highlight .il {
   color: #2AA198;
 }
@@ -919,7 +927,7 @@ body {
 /*
  * Image replacement
  */
-/* line 655, styles.scss */
+/* line 671, styles.scss */
 .ir {
   background-color: transparent;
   border: 0;
@@ -928,7 +936,7 @@ body {
   *text-indent: -9999px;
 }
 
-/* line 663, styles.scss */
+/* line 679, styles.scss */
 .ir:before {
   content: "";
   display: block;
@@ -939,7 +947,7 @@ body {
 /*
  * Hide from both screenreaders and browsers: h5bp.com/u
  */
-/* line 674, styles.scss */
+/* line 690, styles.scss */
 .hidden {
   display: none !important;
   visibility: hidden;
@@ -948,7 +956,7 @@ body {
 /*
  * Hide only visually, but have it available for screenreaders: h5bp.com/v
  */
-/* line 683, styles.scss */
+/* line 699, styles.scss */
 .visuallyhidden {
   border: 0;
   clip: rect(0 0 0 0);
@@ -964,7 +972,7 @@ body {
  * Extends the .visuallyhidden class to allow the element to be focusable
  * when navigated to via the keyboard: h5bp.com/p
  */
-/* line 700, styles.scss */
+/* line 716, styles.scss */
 .visuallyhidden.focusable:active,
 .visuallyhidden.focusable:focus {
   clip: auto;
@@ -978,7 +986,7 @@ body {
 /*
  * Hide visually and from screenreaders, but maintain layout
  */
-/* line 713, styles.scss */
+/* line 729, styles.scss */
 .invisible {
   visibility: hidden;
 }
@@ -994,7 +1002,7 @@ body {
  * 2. The use of `table` rather than `block` is only necessary if using
  *    `:before` to contain the top-margins of child elements.
  */
-/* line 730, styles.scss */
+/* line 746, styles.scss */
 .clearfix:before,
 .clearfix:after {
   content: " ";
@@ -1003,7 +1011,7 @@ body {
   /* 2 */
 }
 
-/* line 735, styles.scss */
+/* line 751, styles.scss */
 .clearfix:after {
   clear: both;
 }
@@ -1012,7 +1020,7 @@ body {
  * For IE 6/7 only
  * Include this rule to trigger hasLayout and contain floats.
  */
-/* line 744, styles.scss */
+/* line 760, styles.scss */
 .clearfix {
   *zoom: 1;
 }

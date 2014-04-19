@@ -30,11 +30,31 @@ $(function(){
 
 
 		$("#menu").stickOnScroll({
-		    topOffset: 60,
-		    setParentOnStick:   true,
-		    setWidthOnStick:    true
+		    topOffset: $(".navbar-fixed-top").outerHeight(),
+		    setWidthOnStick: true,
+		    setParentOnStick: true,
 		});
 
+
+		$("body").on("stickOnScroll:onStick", function(ev, $stickyEle){
+		    // ev.target = element that was made sticky - same as $stickyEle
+		   
+
+		    var introH = $(".navbar").outerHeight();
+		    var menuH = $("#menu").outerHeight();
+
+		    var offsetH = introH + menuH - 20
+
+		    $("#overviewlist").css( { marginTop : offsetH + "px" } );
+
+		    
+		});
+
+
+		$("body").on("stickOnScroll:onUnStick", function(ev, $stickyEle){
+		    // ev.target = element that had Sticky removed - same as $stickyEle
+		   $("#overviewlist").css( { marginTop : 0 } );
+		});
 
 
 	}
