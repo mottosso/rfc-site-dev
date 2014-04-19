@@ -1,0 +1,747 @@
+
+
+
+
+
+#page-wrap { 
+  position: relative; 
+
+  h1 {
+	&:first-child {
+		margin-top:0;
+	}
+  }
+
+}
+
+
+
+
+/* ==========================================================================
+   Typekit
+   ========================================================================== */
+
+
+
+	.wf-loading {
+		height: 100%;
+		overflow: hidden;
+		background-color: #fff;
+		background-repeat: no-repeat;
+		background-position: fixed;
+	}
+	.wf-loading * {
+		opacity: 0;
+	}
+	.wf-active body,
+	.wf-inactive body {
+		-webkit-animation: fade 1s ease;
+		-moz-animation: fade 1s ease;
+		-ms-animation: fade 1s ease;
+		-o-animation: fade 1s ease;
+		animation: fade 1s ease;
+		-webkit-animation-fill-mode: both;
+		-moz-animation-fill-mode: both;
+		-ms-animation-fill-mode: both;
+		-o-animation-fill-mode: both;
+		animation-fill-mode: both;
+	}
+
+
+
+/* ==========================================================================
+   Base
+   ========================================================================== */
+
+
+
+   .content-wrap {
+   	margin-top: 100px;
+   }
+
+   div {
+   	font-size: 16px;
+   	font-family: "ff-meta-serif-web-pro", Baskerville, "Baskerville Old Face", "Hoefler Text", Garamond, "Times New Roman", serif;
+   }
+
+	a:hover, a:active, a:focus {
+		outline: 0;
+	}
+
+	h1, h2, h3, h4 {
+		font-family: "ff-din-web", Helvetica, Arial, sans-serif;
+	}
+
+	h1, .h1, h2, .h2, h3, .h3, h4, .h4 {
+		margin-top: 40px;
+	}
+
+	h1 {
+		//border-bottom: 1px solid #DDDDDD;
+	    margin-bottom: 0;
+	    margin-top: 40px;
+	    padding-bottom: 10px;
+	}
+
+	h1, .h1 {
+		font-size:28px;
+	}
+
+
+	p {
+		
+	}
+
+	code, kbd, pre, samp {
+		 font-family: 'Source Code Pro',Menlo,Monaco,Consolas,"Courier New",monospace;
+	}
+
+
+	img {
+		width:100%;
+		height:auto;
+	}
+
+	.highlight {
+		margin: 20px 0;
+	}
+
+
+	.container {
+		margin-left:0;
+		margin-right:0;
+		//float:left;
+	}
+
+	.navbar {
+		z-index:9999;
+	}
+
+	#loading1 {
+		background:#fff;
+		position:fixed;
+		width:100%;
+		height:100%;
+		z-index:9000;
+	}
+
+	pre code {
+		white-space: pre;
+		word-break: normal;
+		word-wrap: normal;
+	}
+
+
+
+
+
+/* ==========================================================================
+   Nav
+   ========================================================================== */
+
+	.navbar-brand {
+		width: 100px;
+		height:58px;
+		float:left;
+		background-size:contain;
+	    background-image: url('/../assets/img/abstractfactory_black_med_rgb_aw1.png');
+	    background-repeat:no-repeat;
+	    margin-top:13px;
+	}
+
+	.navbar > .container .navbar-brand, .navbar > .container-fluid .navbar-brand {
+		margin-left: -5px;
+	}
+
+	.navbar, .nav-pills > li > a, .btn, .dropdown-menu {
+	  border-radius:0;
+	}
+
+
+
+
+	.dropdown-header {
+		padding: 3px 15px;
+	}
+
+	.dropdown-menu {
+		font-size:12px;
+	}
+
+	.dropdown-menu > li > a {
+		white-space: pre-wrap;
+		padding: 10px 15px;
+		border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+
+		&:hover {
+			color:#fff;
+		}
+
+	}
+
+	.dropdown-menu > li {
+
+		&:hover {
+			color:#fff;
+			background:#333;
+
+			a {
+				color:#fff;
+			}
+
+		}
+
+		&:last-child a{
+			border-bottom:0;
+		}
+
+	}
+
+
+	.navbar {
+		min-height:50px;
+	}
+
+	.navbar-default {
+		background:#fff;
+		border:none;
+	}
+
+
+	.navbar-nav {
+		margin-left:40px;
+		margin-top:20px;
+		font-family: "ff-din-web", Helvetica, Arial, sans-serif;
+	}
+
+
+	.navbar-nav > li > a, .navbar-nav.controls button{
+		padding:0;
+		background:none;
+		margin-right:20px;
+		font-size: 14px;
+		text-transform: uppercase;
+		color:#000;
+
+		&:hover {
+			border-bottom: 1px solid #000;
+		}
+
+	}
+
+
+	.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
+		background:none;
+		border-bottom: 1px solid #000;
+	}
+
+
+	.beforeMenu {
+		z-index:100;
+	}
+
+	#menu {
+		background-color:#fff;
+		min-height:50px;
+		z-index:100;
+	}
+
+
+	.navbar-nav.controls {
+
+		margin-top:0;
+		margin-left:0;
+
+		.lastModified {
+			margin-left:40px;
+		}
+
+		.circle:before {
+		    font-size: 18px;
+		}
+
+		.sort {
+			span {
+				font-size: 12px;
+    			vertical-align: top;
+			}
+		}
+
+
+		label {
+			font-weight:normal;
+			margin-right: 20px;
+		}
+
+		.btn {
+			border:none;
+			line-height:20px;
+			vertical-align: top;
+		}
+
+		.btn:active, .btn.active {
+			 box-shadow: none;
+			  border-bottom: 1px solid #000000;
+		}	
+	}
+
+
+
+
+
+
+	button.active{
+	  background: #68b8c4;
+	}
+
+	button:focus{
+	  outline: 0 none;
+	}
+
+
+	#overviewlist li{
+		display: none;
+	}
+
+/* ==========================================================================
+   Sticky footer styles
+   ========================================================================== */
+
+	html {
+	  position: relative;
+	  min-height: 100%;
+	}
+	body {
+	  /* Margin bottom by footer height */
+	  margin-bottom: 60px;
+	}
+	#footer1 {
+	  position: absolute;
+	  bottom: 0;
+	  width: 100%;
+	  /* Set the fixed height of the footer here */
+	  height: 60px;
+	  background-color: #f5f5f5;
+	}
+
+
+
+/* ==========================================================================
+   Sidebar
+   ========================================================================== */
+
+
+	#sidebar { 
+	  //overflow:hidden;
+
+	  .btn {
+	  	font-family: "ff-din-web", Helvetica, Arial, sans-serif;
+	  }
+
+	}
+
+/* ==========================================================================
+   Overview (Index)
+   ========================================================================== */
+
+
+
+	.overview {
+
+		h1 {
+			margin-bottom:40px;
+		}
+
+		ul.list {
+
+			list-style-type:none;
+			padding:0;
+			margin-left:0;
+
+			li {
+				border-bottom: 1px solid #EEEEEE;
+
+
+			    a {
+			    	padding-top: 20px;
+			    	padding-bottom: 20px;
+			    	width:100%;
+			    	display:block;
+			    	color:#333;
+
+			    	&:hover {
+			    		background-color:#f8f8f8;
+			    		transition: background .45s ease-in;
+						 -moz-transition: background .45s ease-in;
+						 -webkit-transition: background .45s ease-in;
+			    	}
+			    	
+			    }
+
+			    p {
+			    	margin-bottom:0;
+			    }
+
+
+			    .summary {
+			    	opacity: 0.6
+			    }
+
+
+			    h4 {
+			    	margin-top:0;
+			    }
+
+
+			    .title {
+			    	font-family: "ff-din-web", Helvetica, Arial, sans-serif;
+			    }
+
+			    &:last-child {
+			    	border-bottom:none;
+			    }
+
+
+			    .meta-content {
+					opacity:0
+				}
+
+
+			    &:hover {
+			    	  .meta-content {
+						opacity:1;
+						transition: opacity 1s ease-in;
+						 -moz-transition: opacity 1s ease-in;
+						 -webkit-transition: opacity 1s ease-in;
+						}
+
+			    }
+
+
+			}
+		}
+	}
+
+
+	.sub-nav {
+		margin:20px 0;
+		padding:20px 0;
+
+		li {
+			margin-right:20px;
+			
+
+			.btn {
+				height:45px;
+			}
+		}
+
+		.search {
+			height:45px;
+			border:1px solid #CCCCCC;
+			padding-left:10px;
+		}
+
+	}
+
+
+.meta-content {
+	div {
+		font-size:14px;
+	}
+	
+}
+
+
+
+.circle:before {
+    content: ' \25CF';
+    font-size: 16px;
+}
+
+.circle {
+	&.raw {
+		color:#840420;
+	}
+	&.draft {
+		color:#adc2ad;
+	}
+	&.stable {
+		color:#684622;
+	}
+	&.legacy {
+		color:#bebecf;
+	}
+	&.retired {
+		color:#3e3e3e;
+	}
+	&.deleted {
+		color:#a0a0a0;
+	}
+}
+
+
+
+/* ==========================================================================
+   Table of Contents
+   ========================================================================== */
+
+
+.toc-wrap {
+	//position:fixed;
+
+	margin-top:40px;
+	.btn {
+		width:100%;
+		text-align:left;
+		border-radius: 0;
+		background-color:#f0f0f0;
+		margin-bottom:1px;
+		color:#333333;
+
+		&:hover {
+			background-color:#333333;
+			color:#fff;
+		}
+
+	}
+
+}
+
+.collapse-menu {
+	background-color:#f6f6f6;
+	padding:20px;
+}
+
+
+.toc {
+
+	ul {
+	    margin: 0;
+	    padding: 0;
+	    list-style: none;
+
+	}
+
+	li {
+    	padding: 0;
+		//zoom: 1;
+		//filter: alpha(opacity=50);
+		//opacity: 0.5;
+
+	 	border-bottom: 1px solid #DDDDDD;
+	    padding: 0.5em 0;
+
+	}
+
+	a {
+	    display: block;
+
+	    &:hover {
+	    	color:#000;
+	    }
+
+	}
+
+	.h1, .h2, .h3 {
+		font-weight:normal;
+		font-size:13px;
+		margin:0;
+		list-style:none;
+	}
+	.h2, .h3 {
+    	display:none;
+	}
+
+	.toc-active {
+		//zoom: 1;
+		//filter: alpha(opacity=100);
+		//opacity: 1;
+
+		a {
+			
+		}
+
+	}
+
+
+}
+
+
+/* ==========================================================================
+   Solarized
+   ========================================================================== */
+
+.highlight { background-color: #ffffcc }
+.highlight .c { color: #586E75 } /* Comment */
+.highlight .err { color: #93A1A1 } /* Error */
+.highlight .g { color: #93A1A1 } /* Generic */
+.highlight .k { color: #859900 } /* Keyword */
+.highlight .l { color: #93A1A1 } /* Literal */
+.highlight .n { color: #93A1A1 } /* Name */
+.highlight .o { color: #859900 } /* Operator */
+.highlight .x { color: #CB4B16 } /* Other */
+.highlight .p { color: #93A1A1 } /* Punctuation */
+.highlight .cm { color: #586E75 } /* Comment.Multiline */
+.highlight .cp { color: #859900 } /* Comment.Preproc */
+.highlight .c1 { color: #586E75 } /* Comment.Single */
+.highlight .cs { color: #859900 } /* Comment.Special */
+.highlight .gd { color: #2AA198 } /* Generic.Deleted */
+.highlight .ge { color: #93A1A1; font-style: italic } /* Generic.Emph */
+.highlight .gr { color: #DC322F } /* Generic.Error */
+.highlight .gh { color: #CB4B16 } /* Generic.Heading */
+.highlight .gi { color: #859900 } /* Generic.Inserted */
+.highlight .go { color: #93A1A1 } /* Generic.Output */
+.highlight .gp { color: #93A1A1 } /* Generic.Prompt */
+.highlight .gs { color: #93A1A1; font-weight: bold } /* Generic.Strong */
+.highlight .gu { color: #CB4B16 } /* Generic.Subheading */
+.highlight .gt { color: #93A1A1 } /* Generic.Traceback */
+.highlight .kc { color: #CB4B16 } /* Keyword.Constant */
+.highlight .kd { color: #268BD2 } /* Keyword.Declaration */
+.highlight .kn { color: #859900 } /* Keyword.Namespace */
+.highlight .kp { color: #859900 } /* Keyword.Pseudo */
+.highlight .kr { color: #268BD2 } /* Keyword.Reserved */
+.highlight .kt { color: #DC322F } /* Keyword.Type */
+.highlight .ld { color: #93A1A1 } /* Literal.Date */
+.highlight .m { color: #2AA198 } /* Literal.Number */
+.highlight .s { color: #2AA198 } /* Literal.String */
+.highlight .na { color: #93A1A1 } /* Name.Attribute */
+.highlight .nb { color: #B58900 } /* Name.Builtin */
+.highlight .nc { color: #268BD2 } /* Name.Class */
+.highlight .no { color: #CB4B16 } /* Name.Constant */
+.highlight .nd { color: #268BD2 } /* Name.Decorator */
+.highlight .ni { color: #CB4B16 } /* Name.Entity */
+.highlight .ne { color: #CB4B16 } /* Name.Exception */
+.highlight .nf { color: #268BD2 } /* Name.Function */
+.highlight .nl { color: #93A1A1 } /* Name.Label */
+.highlight .nn { color: #93A1A1 } /* Name.Namespace */
+.highlight .nx { color: #93A1A1 } /* Name.Other */
+.highlight .py { color: #93A1A1 } /* Name.Property */
+.highlight .nt { color: #268BD2 } /* Name.Tag */
+.highlight .nv { color: #268BD2 } /* Name.Variable */
+.highlight .ow { color: #859900 } /* Operator.Word */
+.highlight .w { color: #93A1A1 } /* Text.Whitespace */
+.highlight .mf { color: #2AA198 } /* Literal.Number.Float */
+.highlight .mh { color: #2AA198 } /* Literal.Number.Hex */
+.highlight .mi { color: #2AA198 } /* Literal.Number.Integer */
+.highlight .mo { color: #2AA198 } /* Literal.Number.Oct */
+.highlight .sb { color: #586E75 } /* Literal.String.Backtick */
+.highlight .sc { color: #2AA198 } /* Literal.String.Char */
+.highlight .sd { color: #93A1A1 } /* Literal.String.Doc */
+.highlight .s2 { color: #2AA198 } /* Literal.String.Double */
+.highlight .se { color: #CB4B16 } /* Literal.String.Escape */
+.highlight .sh { color: #93A1A1 } /* Literal.String.Heredoc */
+.highlight .si { color: #2AA198 } /* Literal.String.Interpol */
+.highlight .sx { color: #2AA198 } /* Literal.String.Other */
+.highlight .sr { color: #DC322F } /* Literal.String.Regex */
+.highlight .s1 { color: #2AA198 } /* Literal.String.Single */
+.highlight .ss { color: #2AA198 } /* Literal.String.Symbol */
+.highlight .bp { color: #268BD2 } /* Name.Builtin.Pseudo */
+.highlight .vc { color: #268BD2 } /* Name.Variable.Class */
+.highlight .vg { color: #268BD2 } /* Name.Variable.Global */
+.highlight .vi { color: #268BD2 } /* Name.Variable.Instance */
+.highlight .il { color: #2AA198 } /* Literal.Number.Integer.Long */
+
+
+
+/* ==========================================================================
+   Helper classes
+   ========================================================================== */
+
+/*
+ * Image replacement
+ */
+
+.ir {
+    background-color: transparent;
+    border: 0;
+    overflow: hidden;
+    /* IE 6/7 fallback */
+    *text-indent: -9999px;
+}
+
+.ir:before {
+    content: "";
+    display: block;
+    width: 0;
+    height: 150%;
+}
+
+/*
+ * Hide from both screenreaders and browsers: h5bp.com/u
+ */
+
+.hidden {
+    display: none !important;
+    visibility: hidden;
+}
+
+/*
+ * Hide only visually, but have it available for screenreaders: h5bp.com/v
+ */
+
+.visuallyhidden {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+}
+
+/*
+ * Extends the .visuallyhidden class to allow the element to be focusable
+ * when navigated to via the keyboard: h5bp.com/p
+ */
+
+.visuallyhidden.focusable:active,
+.visuallyhidden.focusable:focus {
+    clip: auto;
+    height: auto;
+    margin: 0;
+    overflow: visible;
+    position: static;
+    width: auto;
+}
+
+/*
+ * Hide visually and from screenreaders, but maintain layout
+ */
+
+.invisible {
+    visibility: hidden;
+}
+
+/*
+ * Clearfix: contain floats
+ *
+ * For modern browsers
+ * 1. The space content is one way to avoid an Opera bug when the
+ *    `contenteditable` attribute is included anywhere else in the document.
+ *    Otherwise it causes space to appear at the top and bottom of elements
+ *    that receive the `clearfix` class.
+ * 2. The use of `table` rather than `block` is only necessary if using
+ *    `:before` to contain the top-margins of child elements.
+ */
+
+.clearfix:before,
+.clearfix:after {
+    content: " "; /* 1 */
+    display: table; /* 2 */
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+/*
+ * For IE 6/7 only
+ * Include this rule to trigger hasLayout and contain floats.
+ */
+
+.clearfix {
+    *zoom: 1;
+}
+
