@@ -14,9 +14,38 @@
 
 }
 
-#sidebar { 
-  //overflow:hidden;
-}
+
+
+
+/* ==========================================================================
+   Typekit
+   ========================================================================== */
+
+
+
+	.wf-loading {
+		height: 100%;
+		overflow: hidden;
+		background-color: #fff;
+		background-repeat: no-repeat;
+		background-position: fixed;
+	}
+	.wf-loading * {
+		opacity: 0;
+	}
+	.wf-active body,
+	.wf-inactive body {
+		-webkit-animation: fade 1s ease;
+		-moz-animation: fade 1s ease;
+		-ms-animation: fade 1s ease;
+		-o-animation: fade 1s ease;
+		animation: fade 1s ease;
+		-webkit-animation-fill-mode: both;
+		-moz-animation-fill-mode: both;
+		-ms-animation-fill-mode: both;
+		-o-animation-fill-mode: both;
+		animation-fill-mode: both;
+	}
 
 
 
@@ -24,19 +53,49 @@
    Base
    ========================================================================== */
 
-   body, .btn {
-   	font-size:16px;
+
+
+   .content-wrap {
+   	margin-top: 100px;
+   }
+
+   div {
+   	font-size: 14px;
+   	//font-family: "ff-meta-serif-web-pro", Baskerville, "Baskerville Old Face", "Hoefler Text", Garamond, "Times New Roman", serif;
+   	//font-family: Georgia, Times, "Times New Roman", serif;
+   	//font-family: "ff-din-web", Helvetica, Arial, sans-serif;
    }
 
 	a:hover, a:active, a:focus {
 		outline: 0;
 	}
 
+	h1, h2, h3, h4 {
+		font-family: "ff-din-web", Helvetica, Arial, sans-serif;
+	}
+
+	h1, .h1, h2, .h2, h3, .h3, h4, .h4 {
+		margin-top: 40px;
+	}
+
 	h1 {
-		border-bottom: 1px solid #DDDDDD;
-	    margin-bottom: 20px;
+		//border-bottom: 1px solid #DDDDDD;
+	    margin-bottom: 0;
 	    margin-top: 40px;
 	    padding-bottom: 10px;
+	}
+
+	h1, .h1 {
+		font-size:28px;
+	}
+
+
+	p {
+		
+	}
+
+	code, kbd, pre, samp {
+		 font-family: 'Source Code Pro',Menlo,Monaco,Consolas,"Courier New",monospace;
 	}
 
 
@@ -51,6 +110,8 @@
 
 
 	.container {
+		margin-left:0;
+		margin-right:0;
 		//float:left;
 	}
 
@@ -73,19 +134,25 @@
 	}
 
 
+
+
+
 /* ==========================================================================
    Nav
    ========================================================================== */
 
 	.navbar-brand {
-	  	display: block;
-	    font-size: 18px;
-	    line-height: 20px;
-	    margin: 10px 0;
-	    padding: 10px 15px;
-	    float: none;
-	    height:auto;
-	    color:#fff;
+		width: 100px;
+		height:58px;
+		float:left;
+		background-size:contain;
+	    background-image: url('/../assets/img/abstractfactory_black_med_rgb_aw1.png');
+	    background-repeat:no-repeat;
+	    margin-top:13px;
+	}
+
+	.navbar > .container .navbar-brand, .navbar > .container-fluid .navbar-brand {
+		margin-left: -5px;
 	}
 
 	.navbar, .nav-pills > li > a, .btn, .dropdown-menu {
@@ -93,35 +160,6 @@
 	}
 
 
-	html, body {
-	  height: 100%;
-	}
-
-	body {
-	  padding: 50px 0 0 0;
-	}
-
-	.navbar-toggle {
-	  float: left;
-	  margin-left: 15px;
-	}
-
-	@media (min-width: 0) {
-	  .navbar-toggle {
-	    display: block; /* force showing the toggle */
-	  }
-	}
-
-	@media (min-width: 992px) {
-	  body {
-	    padding: 0;
-	  }
-	  .navbar {
-	    right: auto;
-	    background: none;
-	    border: none;
-	  }
-	}
 
 
 	.dropdown-header {
@@ -161,68 +199,156 @@
 
 	}
 
-	.navmenu-default .navmenu-nav.dropdown-menu, .navbar-default .navbar-offcanvas .navmenu-nav.dropdown-menu {
-		background-color: #414141;
-	}
 
-	.navmenu-default .navmenu-nav.dropdown-menu > .active > a, .navbar-default .navbar-offcanvas .navmenu-nav.dropdown-menu > .active > a, .navmenu-default .navmenu-nav.dropdown-menu > .active > a:hover, .navbar-default .navbar-offcanvas .navmenu-nav.dropdown-menu > .active > a:hover, .navmenu-default .navmenu-nav.dropdown-menu > .active > a:focus, .navbar-default .navbar-offcanvas .navmenu-nav.dropdown-menu > .active > a:focus {
-		color:#fff;
-		background:#393939;
+	.navbar {
+		min-height:50px;
 	}
-
-	.navmenu-default .navmenu-nav > li > a:hover, .navbar-default .navbar-offcanvas .navmenu-nav > li > a:hover, .navmenu-default .navmenu-nav > li > a:focus, .navbar-default .navbar-offcanvas .navmenu-nav > li > a:focus {
-		color:#fff;
-		background:#393939;
-	}
-
 
 	.navbar-default {
+		background:#fff;
+		border:none;
+	}
 
-		.navbar-toggle {
-		    border-radius: 0;
-		    float: left;
-		    margin-left: 15px;
-		    margin-top: 20px;
-		    background:#333;
-		    color:#fff;
-		    border:none;
 
-		    .icon-bar {
-		    	background-color:#fff
-		    }
+	.navbar-nav {
+		margin-left:40px;
+		margin-top:20px;
+		font-family: "ff-din-web", Helvetica, Arial, sans-serif;
+	}
 
-		    &:hover {
-		    	.icon-bar {
-		    	background-color:#000
-		    	}
-		    }
 
+	.navbar-nav > li > a, .navbar-nav.controls button{
+		padding:0;
+		background:none;
+		margin-right:20px;
+		font-size: 14px;
+		text-transform: uppercase;
+		color:#000;
+
+		&:hover {
+			border-bottom: 1px solid #000;
+		}
+
+	}
+
+
+	.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
+		background:none;
+		border-bottom: 1px solid #000;
+	}
+
+
+	.beforeMenu {
+		z-index:100;
+	}
+
+	#menu {
+		background-color:#fff;
+		min-height:50px;
+		z-index:100;
+	}
+
+
+	.navbar-nav.controls {
+
+		margin-top:0;
+		margin-left:0;
+
+		.lastModified {
+			margin-left:40px;
+		}
+
+		.circle:before {
+		    font-size: 18px;
+		}
+
+		.sort {
+			span {
+				font-size: 12px;
+    			vertical-align: top;
+			}
 		}
 
 
+		label {
+			font-weight:normal;
+			margin-right: 20px;
+		}
+
+		.btn {
+			border:none;
+			line-height:20px;
+			vertical-align: top;
+		}
+
+		.btn:active, .btn.active {
+			 box-shadow: none;
+			  border-bottom: 1px solid #000000;
+		}	
 	}
 
 
-	.navmenu-default .navmenu-nav > .open > a, .navbar-default .navbar-offcanvas .navmenu-nav > .open > a, .navmenu-default .navmenu-nav > .open > a:hover, .navbar-default .navbar-offcanvas .navmenu-nav > .open > a:hover, .navmenu-default .navmenu-nav > .open > a:focus, .navbar-default .navbar-offcanvas .navmenu-nav > .open > a:focus {
-			background:none;
-			color:#fff;
-			border-bottom: 1px solid rgba(255,255,255,0.1);
-			border-top: 1px solid rgba(255,255,255,0.1);
+
+
+
+
+	button.active{
+	  background: #68b8c4;
+	}
+
+	button:focus{
+	  outline: 0 none;
 	}
 
 
-	.navmenu-default, .navbar-default .navbar-offcanvas {
-		background-color: #333333;
+	#overviewlist li{
+		display: none;
+	}
+
+/* ==========================================================================
+   Sticky footer styles
+   ========================================================================== */
+
+	html {
+	  position: relative;
+	  min-height: 100%;
+	}
+	body {
+	  /* Margin bottom by footer height */
+	  margin-bottom: 60px;
+	}
+	#footer1 {
+	  position: absolute;
+	  bottom: 0;
+	  width: 100%;
+	  /* Set the fixed height of the footer here */
+	  height: 60px;
+	  background-color: #f5f5f5;
 	}
 
 
 
+/* ==========================================================================
+   Sidebar
+   ========================================================================== */
+
+
+	#sidebar { 
+	  //overflow:hidden;
+
+	  .btn {
+	  	font-family: "ff-din-web", Helvetica, Arial, sans-serif;
+	  }
+
+	}
 
 /* ==========================================================================
    Overview (Index)
    ========================================================================== */
 
-
+   .beforeList {
+   	margin-bottom:0;
+   }
 
 	.overview {
 
@@ -237,9 +363,68 @@
 			margin-left:0;
 
 			li {
-				border-bottom: 1px solid rgba(0,0,0,0.1);
-			 	margin-bottom: 20px;
+				border-bottom: 1px solid #EEEEEE;
+			    padding-top: 20px;
 			    padding-bottom: 20px;
+			    width:100%;
+			    display:block;
+			    color:#333;
+
+
+		    	&:hover {
+		    		background-color:#f8f8f8;
+		    	}
+
+			    a {
+
+			    	color:#333;
+
+			    	
+			    }
+
+			    p {
+			    	margin-bottom:0;
+			    }
+
+
+			    .summary {
+			    	opacity: 0.6
+			    }
+
+
+			    h4 {
+			    	margin-top:0;
+			    }
+
+
+			    .title {
+			    	font-family: "ff-din-web", Helvetica, Arial, sans-serif;
+			    }
+
+			    .title.number {
+			    	a:hover {
+			    		text-decoration:none;
+			    	}
+			    }
+
+			    &:last-child {
+			    	border-bottom:none;
+			    }
+
+
+			    .meta-content {
+					opacity:0
+				}
+
+
+			    &:hover {
+			    	  .meta-content {
+						opacity:1;
+						}
+
+			    }
+
+
 			}
 		}
 	}
@@ -247,8 +432,6 @@
 
 	.sub-nav {
 		margin:20px 0;
-		border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-		border-top: 1px solid rgba(0, 0, 0, 0.1);
 		padding:20px 0;
 
 		li {
@@ -267,6 +450,52 @@
 		}
 
 	}
+
+
+.meta-content {
+	div {
+		font-size:12px;
+
+
+	.circle:before {
+	    font-size: 16px;
+	    line-height: 0;
+	}
+
+	}
+
+
+	
+}
+
+
+
+.circle:before {
+    content: ' \25CF';
+    font-size: 16px;
+}
+
+.circle {
+	&.raw {
+		color:#840420;
+	}
+	&.draft {
+		color:#adc2ad;
+	}
+	&.stable {
+		color:#684622;
+	}
+	&.legacy {
+		color:#bebecf;
+	}
+	&.retired {
+		color:#3e3e3e;
+	}
+	&.deleted {
+		color:#a0a0a0;
+	}
+}
+
 
 
 /* ==========================================================================
@@ -295,7 +524,7 @@
 
 }
 
-#demo {
+.collapse-menu {
 	background-color:#f6f6f6;
 	padding:20px;
 }
@@ -332,7 +561,7 @@
 
 	.h1, .h2, .h3 {
 		font-weight:normal;
-		font-size:12px;
+		font-size:13px;
 		margin:0;
 		list-style:none;
 	}
@@ -428,4 +657,107 @@
 .highlight .vg { color: #268BD2 } /* Name.Variable.Global */
 .highlight .vi { color: #268BD2 } /* Name.Variable.Instance */
 .highlight .il { color: #2AA198 } /* Literal.Number.Integer.Long */
+
+
+
+/* ==========================================================================
+   Helper classes
+   ========================================================================== */
+
+/*
+ * Image replacement
+ */
+
+.ir {
+    background-color: transparent;
+    border: 0;
+    overflow: hidden;
+    /* IE 6/7 fallback */
+    *text-indent: -9999px;
+}
+
+.ir:before {
+    content: "";
+    display: block;
+    width: 0;
+    height: 150%;
+}
+
+/*
+ * Hide from both screenreaders and browsers: h5bp.com/u
+ */
+
+.hidden {
+    display: none !important;
+    visibility: hidden;
+}
+
+/*
+ * Hide only visually, but have it available for screenreaders: h5bp.com/v
+ */
+
+.visuallyhidden {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+}
+
+/*
+ * Extends the .visuallyhidden class to allow the element to be focusable
+ * when navigated to via the keyboard: h5bp.com/p
+ */
+
+.visuallyhidden.focusable:active,
+.visuallyhidden.focusable:focus {
+    clip: auto;
+    height: auto;
+    margin: 0;
+    overflow: visible;
+    position: static;
+    width: auto;
+}
+
+/*
+ * Hide visually and from screenreaders, but maintain layout
+ */
+
+.invisible {
+    visibility: hidden;
+}
+
+/*
+ * Clearfix: contain floats
+ *
+ * For modern browsers
+ * 1. The space content is one way to avoid an Opera bug when the
+ *    `contenteditable` attribute is included anywhere else in the document.
+ *    Otherwise it causes space to appear at the top and bottom of elements
+ *    that receive the `clearfix` class.
+ * 2. The use of `table` rather than `block` is only necessary if using
+ *    `:before` to contain the top-margins of child elements.
+ */
+
+.clearfix:before,
+.clearfix:after {
+    content: " "; /* 1 */
+    display: table; /* 2 */
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+/*
+ * For IE 6/7 only
+ * Include this rule to trigger hasLayout and contain floats.
+ */
+
+.clearfix {
+    *zoom: 1;
+}
 

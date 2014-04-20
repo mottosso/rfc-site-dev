@@ -8,43 +8,105 @@
 }
 
 /* ==========================================================================
-   Base
+   Typekit
    ========================================================================== */
-/* line 27, styles.scss */
-body, .btn {
-  font-size: 16px;
+/* line 26, styles.scss */
+.wf-loading {
+  height: 100%;
+  overflow: hidden;
+  background-color: #fff;
+  background-repeat: no-repeat;
+  background-position: fixed;
 }
 
-/* line 31, styles.scss */
+/* line 33, styles.scss */
+.wf-loading * {
+  opacity: 0;
+}
+
+/* line 37, styles.scss */
+.wf-active body,
+.wf-inactive body {
+  -webkit-animation: fade 1s ease;
+  -moz-animation: fade 1s ease;
+  -ms-animation: fade 1s ease;
+  -o-animation: fade 1s ease;
+  animation: fade 1s ease;
+  -webkit-animation-fill-mode: both;
+  -moz-animation-fill-mode: both;
+  -ms-animation-fill-mode: both;
+  -o-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+/* ==========================================================================
+   Base
+   ========================================================================== */
+/* line 58, styles.scss */
+.content-wrap {
+  margin-top: 100px;
+}
+
+/* line 62, styles.scss */
+div {
+  font-size: 14px;
+}
+
+/* line 69, styles.scss */
 a:hover, a:active, a:focus {
   outline: 0;
 }
 
-/* line 35, styles.scss */
+/* line 73, styles.scss */
+h1, h2, h3, h4 {
+  font-family: "ff-din-web", Helvetica, Arial, sans-serif;
+}
+
+/* line 77, styles.scss */
+h1, .h1, h2, .h2, h3, .h3, h4, .h4 {
+  margin-top: 40px;
+}
+
+/* line 81, styles.scss */
 h1 {
-  border-bottom: 1px solid #DDDDDD;
-  margin-bottom: 20px;
+  margin-bottom: 0;
   margin-top: 40px;
   padding-bottom: 10px;
 }
 
-/* line 43, styles.scss */
+/* line 88, styles.scss */
+h1, .h1 {
+  font-size: 28px;
+}
+
+/* line 97, styles.scss */
+code, kbd, pre, samp {
+  font-family: 'Source Code Pro',Menlo,Monaco,Consolas,"Courier New",monospace;
+}
+
+/* line 102, styles.scss */
 img {
   width: 100%;
   height: auto;
 }
 
-/* line 48, styles.scss */
+/* line 107, styles.scss */
 .highlight {
   margin: 20px 0;
 }
 
-/* line 57, styles.scss */
+/* line 112, styles.scss */
+.container {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+/* line 118, styles.scss */
 .navbar {
   z-index: 9999;
 }
 
-/* line 61, styles.scss */
+/* line 122, styles.scss */
 #loading1 {
   background: #fff;
   position: fixed;
@@ -53,7 +115,7 @@ img {
   z-index: 9000;
 }
 
-/* line 69, styles.scss */
+/* line 130, styles.scss */
 pre code {
   white-space: pre;
   word-break: normal;
@@ -63,193 +125,332 @@ pre code {
 /* ==========================================================================
    Nav
    ========================================================================== */
-/* line 80, styles.scss */
+/* line 144, styles.scss */
 .navbar-brand {
-  display: block;
-  font-size: 18px;
-  line-height: 20px;
-  margin: 10px 0;
-  padding: 10px 15px;
-  float: none;
-  height: auto;
-  color: #fff;
+  width: 100px;
+  height: 58px;
+  float: left;
+  background-size: contain;
+  background-image: url("/../assets/img/abstractfactory_black_med_rgb_aw1.png");
+  background-repeat: no-repeat;
+  margin-top: 13px;
 }
 
-/* line 91, styles.scss */
+/* line 154, styles.scss */
+.navbar > .container .navbar-brand, .navbar > .container-fluid .navbar-brand {
+  margin-left: -5px;
+}
+
+/* line 158, styles.scss */
 .navbar, .nav-pills > li > a, .btn, .dropdown-menu {
   border-radius: 0;
 }
 
-/* line 96, styles.scss */
-html, body {
-  height: 100%;
-}
-
-/* line 100, styles.scss */
-body {
-  padding: 50px 0 0 0;
-}
-
-/* line 104, styles.scss */
-.navbar-toggle {
-  float: left;
-  margin-left: 15px;
-}
-
-@media (min-width: 0) {
-  /* line 110, styles.scss */
-  .navbar-toggle {
-    display: block;
-    /* force showing the toggle */
-  }
-}
-@media (min-width: 992px) {
-  /* line 116, styles.scss */
-  body {
-    padding: 0;
-  }
-
-  /* line 119, styles.scss */
-  .navbar {
-    right: auto;
-    background: none;
-    border: none;
-  }
-}
-/* line 127, styles.scss */
+/* line 165, styles.scss */
 .dropdown-header {
   padding: 3px 15px;
 }
 
-/* line 131, styles.scss */
+/* line 169, styles.scss */
 .dropdown-menu {
   font-size: 12px;
 }
 
-/* line 135, styles.scss */
+/* line 173, styles.scss */
 .dropdown-menu > li > a {
   white-space: pre-wrap;
   padding: 10px 15px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
-/* line 140, styles.scss */
+/* line 178, styles.scss */
 .dropdown-menu > li > a:hover {
   color: #fff;
 }
 
-/* line 148, styles.scss */
+/* line 186, styles.scss */
 .dropdown-menu > li:hover {
   color: #fff;
   background: #333;
 }
-/* line 152, styles.scss */
+/* line 190, styles.scss */
 .dropdown-menu > li:hover a {
   color: #fff;
 }
-/* line 158, styles.scss */
+/* line 196, styles.scss */
 .dropdown-menu > li:last-child a {
   border-bottom: 0;
 }
 
-/* line 164, styles.scss */
-.navmenu-default .navmenu-nav.dropdown-menu, .navbar-default .navbar-offcanvas .navmenu-nav.dropdown-menu {
-  background-color: #414141;
+/* line 203, styles.scss */
+.navbar {
+  min-height: 50px;
 }
 
-/* line 168, styles.scss */
-.navmenu-default .navmenu-nav.dropdown-menu > .active > a, .navbar-default .navbar-offcanvas .navmenu-nav.dropdown-menu > .active > a, .navmenu-default .navmenu-nav.dropdown-menu > .active > a:hover, .navbar-default .navbar-offcanvas .navmenu-nav.dropdown-menu > .active > a:hover, .navmenu-default .navmenu-nav.dropdown-menu > .active > a:focus, .navbar-default .navbar-offcanvas .navmenu-nav.dropdown-menu > .active > a:focus {
-  color: #fff;
-  background: #393939;
-}
-
-/* line 173, styles.scss */
-.navmenu-default .navmenu-nav > li > a:hover, .navbar-default .navbar-offcanvas .navmenu-nav > li > a:hover, .navmenu-default .navmenu-nav > li > a:focus, .navbar-default .navbar-offcanvas .navmenu-nav > li > a:focus {
-  color: #fff;
-  background: #393939;
-}
-
-/* line 181, styles.scss */
-.navbar-default .navbar-toggle {
-  border-radius: 0;
-  float: left;
-  margin-left: 15px;
-  margin-top: 20px;
-  background: #333;
-  color: #fff;
+/* line 207, styles.scss */
+.navbar-default {
+  background: #fff;
   border: none;
 }
-/* line 190, styles.scss */
-.navbar-default .navbar-toggle .icon-bar {
-  background-color: white;
-}
-/* line 195, styles.scss */
-.navbar-default .navbar-toggle:hover .icon-bar {
-  background-color: black;
+
+/* line 213, styles.scss */
+.navbar-nav {
+  margin-left: 40px;
+  margin-top: 20px;
+  font-family: "ff-din-web", Helvetica, Arial, sans-serif;
 }
 
-/* line 206, styles.scss */
-.navmenu-default .navmenu-nav > .open > a, .navbar-default .navbar-offcanvas .navmenu-nav > .open > a, .navmenu-default .navmenu-nav > .open > a:hover, .navbar-default .navbar-offcanvas .navmenu-nav > .open > a:hover, .navmenu-default .navmenu-nav > .open > a:focus, .navbar-default .navbar-offcanvas .navmenu-nav > .open > a:focus {
+/* line 220, styles.scss */
+.navbar-nav > li > a, .navbar-nav.controls button {
+  padding: 0;
   background: none;
-  color: #fff;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  margin-right: 20px;
+  font-size: 14px;
+  text-transform: uppercase;
+  color: #000;
+}
+/* line 228, styles.scss */
+.navbar-nav > li > a:hover, .navbar-nav.controls button:hover {
+  border-bottom: 1px solid #000;
 }
 
-/* line 214, styles.scss */
-.navmenu-default, .navbar-default .navbar-offcanvas {
-  background-color: #333333;
+/* line 235, styles.scss */
+.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
+  background: none;
+  border-bottom: 1px solid #000;
+}
+
+/* line 241, styles.scss */
+.beforeMenu {
+  z-index: 100;
+}
+
+/* line 245, styles.scss */
+#menu {
+  background-color: #fff;
+  min-height: 50px;
+  z-index: 100;
+}
+
+/* line 252, styles.scss */
+.navbar-nav.controls {
+  margin-top: 0;
+  margin-left: 0;
+}
+/* line 257, styles.scss */
+.navbar-nav.controls .lastModified {
+  margin-left: 40px;
+}
+/* line 261, styles.scss */
+.navbar-nav.controls .circle:before {
+  font-size: 18px;
+}
+/* line 266, styles.scss */
+.navbar-nav.controls .sort span {
+  font-size: 12px;
+  vertical-align: top;
+}
+/* line 273, styles.scss */
+.navbar-nav.controls label {
+  font-weight: normal;
+  margin-right: 20px;
+}
+/* line 278, styles.scss */
+.navbar-nav.controls .btn {
+  border: none;
+  line-height: 20px;
+  vertical-align: top;
+}
+/* line 284, styles.scss */
+.navbar-nav.controls .btn:active, .navbar-nav.controls .btn.active {
+  box-shadow: none;
+  border-bottom: 1px solid #000000;
+}
+
+/* line 295, styles.scss */
+button.active {
+  background: #68b8c4;
+}
+
+/* line 299, styles.scss */
+button:focus {
+  outline: 0 none;
+}
+
+/* line 304, styles.scss */
+#overviewlist li {
+  display: none;
+}
+
+/* ==========================================================================
+   Sticky footer styles
+   ========================================================================== */
+/* line 312, styles.scss */
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+/* line 316, styles.scss */
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 60px;
+}
+
+/* line 320, styles.scss */
+#footer1 {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 60px;
+  background-color: #f5f5f5;
+}
+
+/* ==========================================================================
+   Sidebar
+   ========================================================================== */
+/* line 339, styles.scss */
+#sidebar .btn {
+  font-family: "ff-din-web", Helvetica, Arial, sans-serif;
 }
 
 /* ==========================================================================
    Overview (Index)
    ========================================================================== */
-/* line 229, styles.scss */
+/* line 349, styles.scss */
+.beforeList {
+  margin-bottom: 0;
+}
+
+/* line 355, styles.scss */
 .overview h1 {
   margin-bottom: 40px;
 }
-/* line 233, styles.scss */
+/* line 359, styles.scss */
 .overview ul.list {
   list-style-type: none;
   padding: 0;
   margin-left: 0;
 }
-/* line 239, styles.scss */
+/* line 365, styles.scss */
 .overview ul.list li {
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-  margin-bottom: 20px;
+  border-bottom: 1px solid #EEEEEE;
+  padding-top: 20px;
   padding-bottom: 20px;
+  width: 100%;
+  display: block;
+  color: #333;
+}
+/* line 374, styles.scss */
+.overview ul.list li:hover {
+  background-color: #f8f8f8;
+}
+/* line 378, styles.scss */
+.overview ul.list li a {
+  color: #333;
+}
+/* line 385, styles.scss */
+.overview ul.list li p {
+  margin-bottom: 0;
+}
+/* line 390, styles.scss */
+.overview ul.list li .summary {
+  opacity: 0.6;
+}
+/* line 395, styles.scss */
+.overview ul.list li h4 {
+  margin-top: 0;
+}
+/* line 400, styles.scss */
+.overview ul.list li .title {
+  font-family: "ff-din-web", Helvetica, Arial, sans-serif;
+}
+/* line 405, styles.scss */
+.overview ul.list li .title.number a:hover {
+  text-decoration: none;
+}
+/* line 410, styles.scss */
+.overview ul.list li:last-child {
+  border-bottom: none;
+}
+/* line 415, styles.scss */
+.overview ul.list li .meta-content {
+  opacity: 0;
+}
+/* line 421, styles.scss */
+.overview ul.list li:hover .meta-content {
+  opacity: 1;
 }
 
-/* line 248, styles.scss */
+/* line 433, styles.scss */
 .sub-nav {
   margin: 20px 0;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-  border-top: 1px solid rgba(0, 0, 0, 0.1);
   padding: 20px 0;
 }
-/* line 254, styles.scss */
+/* line 437, styles.scss */
 .sub-nav li {
   margin-right: 20px;
 }
-/* line 258, styles.scss */
+/* line 441, styles.scss */
 .sub-nav li .btn {
   height: 45px;
 }
-/* line 263, styles.scss */
+/* line 446, styles.scss */
 .sub-nav .search {
   height: 45px;
   border: 1px solid #CCCCCC;
   padding-left: 10px;
 }
 
+/* line 456, styles.scss */
+.meta-content div {
+  font-size: 12px;
+}
+/* line 460, styles.scss */
+.meta-content div .circle:before {
+  font-size: 16px;
+  line-height: 0;
+}
+
+/* line 473, styles.scss */
+.circle:before {
+  content: ' \25CF';
+  font-size: 16px;
+}
+
+/* line 479, styles.scss */
+.circle.raw {
+  color: #840420;
+}
+/* line 482, styles.scss */
+.circle.draft {
+  color: #adc2ad;
+}
+/* line 485, styles.scss */
+.circle.stable {
+  color: #684622;
+}
+/* line 488, styles.scss */
+.circle.legacy {
+  color: #bebecf;
+}
+/* line 491, styles.scss */
+.circle.retired {
+  color: #3e3e3e;
+}
+/* line 494, styles.scss */
+.circle.deleted {
+  color: #a0a0a0;
+}
+
 /* ==========================================================================
    Table of Contents
    ========================================================================== */
-/* line 277, styles.scss */
+/* line 506, styles.scss */
 .toc-wrap {
   margin-top: 40px;
 }
-/* line 281, styles.scss */
+/* line 510, styles.scss */
 .toc-wrap .btn {
   width: 100%;
   text-align: left;
@@ -258,46 +459,46 @@ body {
   margin-bottom: 1px;
   color: #333333;
 }
-/* line 289, styles.scss */
+/* line 518, styles.scss */
 .toc-wrap .btn:hover {
   background-color: #333333;
   color: #fff;
 }
 
-/* line 298, styles.scss */
-#demo {
+/* line 527, styles.scss */
+.collapse-menu {
   background-color: #f6f6f6;
   padding: 20px;
 }
 
-/* line 306, styles.scss */
+/* line 535, styles.scss */
 .toc ul {
   margin: 0;
   padding: 0;
   list-style: none;
 }
-/* line 313, styles.scss */
+/* line 542, styles.scss */
 .toc li {
   padding: 0;
   border-bottom: 1px solid #DDDDDD;
   padding: 0.5em 0;
 }
-/* line 324, styles.scss */
+/* line 553, styles.scss */
 .toc a {
   display: block;
 }
-/* line 327, styles.scss */
+/* line 556, styles.scss */
 .toc a:hover {
   color: #000;
 }
-/* line 333, styles.scss */
+/* line 562, styles.scss */
 .toc .h1, .toc .h2, .toc .h3 {
   font-weight: normal;
-  font-size: 12px;
+  font-size: 13px;
   margin: 0;
   list-style: none;
 }
-/* line 339, styles.scss */
+/* line 568, styles.scss */
 .toc .h2, .toc .h3 {
   display: none;
 }
@@ -305,418 +506,521 @@ body {
 /* ==========================================================================
    Solarized
    ========================================================================== */
-/* line 362, styles.scss */
+/* line 591, styles.scss */
 .highlight {
   background-color: #ffffcc;
 }
 
-/* line 363, styles.scss */
+/* line 592, styles.scss */
 .highlight .c {
   color: #586E75;
 }
 
 /* Comment */
-/* line 364, styles.scss */
+/* line 593, styles.scss */
 .highlight .err {
   color: #93A1A1;
 }
 
 /* Error */
-/* line 365, styles.scss */
+/* line 594, styles.scss */
 .highlight .g {
   color: #93A1A1;
 }
 
 /* Generic */
-/* line 366, styles.scss */
+/* line 595, styles.scss */
 .highlight .k {
   color: #859900;
 }
 
 /* Keyword */
-/* line 367, styles.scss */
+/* line 596, styles.scss */
 .highlight .l {
   color: #93A1A1;
 }
 
 /* Literal */
-/* line 368, styles.scss */
+/* line 597, styles.scss */
 .highlight .n {
   color: #93A1A1;
 }
 
 /* Name */
-/* line 369, styles.scss */
+/* line 598, styles.scss */
 .highlight .o {
   color: #859900;
 }
 
 /* Operator */
-/* line 370, styles.scss */
+/* line 599, styles.scss */
 .highlight .x {
   color: #CB4B16;
 }
 
 /* Other */
-/* line 371, styles.scss */
+/* line 600, styles.scss */
 .highlight .p {
   color: #93A1A1;
 }
 
 /* Punctuation */
-/* line 372, styles.scss */
+/* line 601, styles.scss */
 .highlight .cm {
   color: #586E75;
 }
 
 /* Comment.Multiline */
-/* line 373, styles.scss */
+/* line 602, styles.scss */
 .highlight .cp {
   color: #859900;
 }
 
 /* Comment.Preproc */
-/* line 374, styles.scss */
+/* line 603, styles.scss */
 .highlight .c1 {
   color: #586E75;
 }
 
 /* Comment.Single */
-/* line 375, styles.scss */
+/* line 604, styles.scss */
 .highlight .cs {
   color: #859900;
 }
 
 /* Comment.Special */
-/* line 376, styles.scss */
+/* line 605, styles.scss */
 .highlight .gd {
   color: #2AA198;
 }
 
 /* Generic.Deleted */
-/* line 377, styles.scss */
+/* line 606, styles.scss */
 .highlight .ge {
   color: #93A1A1;
   font-style: italic;
 }
 
 /* Generic.Emph */
-/* line 378, styles.scss */
+/* line 607, styles.scss */
 .highlight .gr {
   color: #DC322F;
 }
 
 /* Generic.Error */
-/* line 379, styles.scss */
+/* line 608, styles.scss */
 .highlight .gh {
   color: #CB4B16;
 }
 
 /* Generic.Heading */
-/* line 380, styles.scss */
+/* line 609, styles.scss */
 .highlight .gi {
   color: #859900;
 }
 
 /* Generic.Inserted */
-/* line 381, styles.scss */
+/* line 610, styles.scss */
 .highlight .go {
   color: #93A1A1;
 }
 
 /* Generic.Output */
-/* line 382, styles.scss */
+/* line 611, styles.scss */
 .highlight .gp {
   color: #93A1A1;
 }
 
 /* Generic.Prompt */
-/* line 383, styles.scss */
+/* line 612, styles.scss */
 .highlight .gs {
   color: #93A1A1;
   font-weight: bold;
 }
 
 /* Generic.Strong */
-/* line 384, styles.scss */
+/* line 613, styles.scss */
 .highlight .gu {
   color: #CB4B16;
 }
 
 /* Generic.Subheading */
-/* line 385, styles.scss */
+/* line 614, styles.scss */
 .highlight .gt {
   color: #93A1A1;
 }
 
 /* Generic.Traceback */
-/* line 386, styles.scss */
+/* line 615, styles.scss */
 .highlight .kc {
   color: #CB4B16;
 }
 
 /* Keyword.Constant */
-/* line 387, styles.scss */
+/* line 616, styles.scss */
 .highlight .kd {
   color: #268BD2;
 }
 
 /* Keyword.Declaration */
-/* line 388, styles.scss */
+/* line 617, styles.scss */
 .highlight .kn {
   color: #859900;
 }
 
 /* Keyword.Namespace */
-/* line 389, styles.scss */
+/* line 618, styles.scss */
 .highlight .kp {
   color: #859900;
 }
 
 /* Keyword.Pseudo */
-/* line 390, styles.scss */
+/* line 619, styles.scss */
 .highlight .kr {
   color: #268BD2;
 }
 
 /* Keyword.Reserved */
-/* line 391, styles.scss */
+/* line 620, styles.scss */
 .highlight .kt {
   color: #DC322F;
 }
 
 /* Keyword.Type */
-/* line 392, styles.scss */
+/* line 621, styles.scss */
 .highlight .ld {
   color: #93A1A1;
 }
 
 /* Literal.Date */
-/* line 393, styles.scss */
+/* line 622, styles.scss */
 .highlight .m {
   color: #2AA198;
 }
 
 /* Literal.Number */
-/* line 394, styles.scss */
+/* line 623, styles.scss */
 .highlight .s {
   color: #2AA198;
 }
 
 /* Literal.String */
-/* line 395, styles.scss */
+/* line 624, styles.scss */
 .highlight .na {
   color: #93A1A1;
 }
 
 /* Name.Attribute */
-/* line 396, styles.scss */
+/* line 625, styles.scss */
 .highlight .nb {
   color: #B58900;
 }
 
 /* Name.Builtin */
-/* line 397, styles.scss */
+/* line 626, styles.scss */
 .highlight .nc {
   color: #268BD2;
 }
 
 /* Name.Class */
-/* line 398, styles.scss */
+/* line 627, styles.scss */
 .highlight .no {
   color: #CB4B16;
 }
 
 /* Name.Constant */
-/* line 399, styles.scss */
+/* line 628, styles.scss */
 .highlight .nd {
   color: #268BD2;
 }
 
 /* Name.Decorator */
-/* line 400, styles.scss */
+/* line 629, styles.scss */
 .highlight .ni {
   color: #CB4B16;
 }
 
 /* Name.Entity */
-/* line 401, styles.scss */
+/* line 630, styles.scss */
 .highlight .ne {
   color: #CB4B16;
 }
 
 /* Name.Exception */
-/* line 402, styles.scss */
+/* line 631, styles.scss */
 .highlight .nf {
   color: #268BD2;
 }
 
 /* Name.Function */
-/* line 403, styles.scss */
+/* line 632, styles.scss */
 .highlight .nl {
   color: #93A1A1;
 }
 
 /* Name.Label */
-/* line 404, styles.scss */
+/* line 633, styles.scss */
 .highlight .nn {
   color: #93A1A1;
 }
 
 /* Name.Namespace */
-/* line 405, styles.scss */
+/* line 634, styles.scss */
 .highlight .nx {
   color: #93A1A1;
 }
 
 /* Name.Other */
-/* line 406, styles.scss */
+/* line 635, styles.scss */
 .highlight .py {
   color: #93A1A1;
 }
 
 /* Name.Property */
-/* line 407, styles.scss */
+/* line 636, styles.scss */
 .highlight .nt {
   color: #268BD2;
 }
 
 /* Name.Tag */
-/* line 408, styles.scss */
+/* line 637, styles.scss */
 .highlight .nv {
   color: #268BD2;
 }
 
 /* Name.Variable */
-/* line 409, styles.scss */
+/* line 638, styles.scss */
 .highlight .ow {
   color: #859900;
 }
 
 /* Operator.Word */
-/* line 410, styles.scss */
+/* line 639, styles.scss */
 .highlight .w {
   color: #93A1A1;
 }
 
 /* Text.Whitespace */
-/* line 411, styles.scss */
+/* line 640, styles.scss */
 .highlight .mf {
   color: #2AA198;
 }
 
 /* Literal.Number.Float */
-/* line 412, styles.scss */
+/* line 641, styles.scss */
 .highlight .mh {
   color: #2AA198;
 }
 
 /* Literal.Number.Hex */
-/* line 413, styles.scss */
+/* line 642, styles.scss */
 .highlight .mi {
   color: #2AA198;
 }
 
 /* Literal.Number.Integer */
-/* line 414, styles.scss */
+/* line 643, styles.scss */
 .highlight .mo {
   color: #2AA198;
 }
 
 /* Literal.Number.Oct */
-/* line 415, styles.scss */
+/* line 644, styles.scss */
 .highlight .sb {
   color: #586E75;
 }
 
 /* Literal.String.Backtick */
-/* line 416, styles.scss */
+/* line 645, styles.scss */
 .highlight .sc {
   color: #2AA198;
 }
 
 /* Literal.String.Char */
-/* line 417, styles.scss */
+/* line 646, styles.scss */
 .highlight .sd {
   color: #93A1A1;
 }
 
 /* Literal.String.Doc */
-/* line 418, styles.scss */
+/* line 647, styles.scss */
 .highlight .s2 {
   color: #2AA198;
 }
 
 /* Literal.String.Double */
-/* line 419, styles.scss */
+/* line 648, styles.scss */
 .highlight .se {
   color: #CB4B16;
 }
 
 /* Literal.String.Escape */
-/* line 420, styles.scss */
+/* line 649, styles.scss */
 .highlight .sh {
   color: #93A1A1;
 }
 
 /* Literal.String.Heredoc */
-/* line 421, styles.scss */
+/* line 650, styles.scss */
 .highlight .si {
   color: #2AA198;
 }
 
 /* Literal.String.Interpol */
-/* line 422, styles.scss */
+/* line 651, styles.scss */
 .highlight .sx {
   color: #2AA198;
 }
 
 /* Literal.String.Other */
-/* line 423, styles.scss */
+/* line 652, styles.scss */
 .highlight .sr {
   color: #DC322F;
 }
 
 /* Literal.String.Regex */
-/* line 424, styles.scss */
+/* line 653, styles.scss */
 .highlight .s1 {
   color: #2AA198;
 }
 
 /* Literal.String.Single */
-/* line 425, styles.scss */
+/* line 654, styles.scss */
 .highlight .ss {
   color: #2AA198;
 }
 
 /* Literal.String.Symbol */
-/* line 426, styles.scss */
+/* line 655, styles.scss */
 .highlight .bp {
   color: #268BD2;
 }
 
 /* Name.Builtin.Pseudo */
-/* line 427, styles.scss */
+/* line 656, styles.scss */
 .highlight .vc {
   color: #268BD2;
 }
 
 /* Name.Variable.Class */
-/* line 428, styles.scss */
+/* line 657, styles.scss */
 .highlight .vg {
   color: #268BD2;
 }
 
 /* Name.Variable.Global */
-/* line 429, styles.scss */
+/* line 658, styles.scss */
 .highlight .vi {
   color: #268BD2;
 }
 
 /* Name.Variable.Instance */
-/* line 430, styles.scss */
+/* line 659, styles.scss */
 .highlight .il {
   color: #2AA198;
 }
 
 /* Literal.Number.Integer.Long */
+/* ==========================================================================
+   Helper classes
+   ========================================================================== */
+/*
+ * Image replacement
+ */
+/* line 671, styles.scss */
+.ir {
+  background-color: transparent;
+  border: 0;
+  overflow: hidden;
+  /* IE 6/7 fallback */
+  *text-indent: -9999px;
+}
+
+/* line 679, styles.scss */
+.ir:before {
+  content: "";
+  display: block;
+  width: 0;
+  height: 150%;
+}
+
+/*
+ * Hide from both screenreaders and browsers: h5bp.com/u
+ */
+/* line 690, styles.scss */
+.hidden {
+  display: none !important;
+  visibility: hidden;
+}
+
+/*
+ * Hide only visually, but have it available for screenreaders: h5bp.com/v
+ */
+/* line 699, styles.scss */
+.visuallyhidden {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+/*
+ * Extends the .visuallyhidden class to allow the element to be focusable
+ * when navigated to via the keyboard: h5bp.com/p
+ */
+/* line 716, styles.scss */
+.visuallyhidden.focusable:active,
+.visuallyhidden.focusable:focus {
+  clip: auto;
+  height: auto;
+  margin: 0;
+  overflow: visible;
+  position: static;
+  width: auto;
+}
+
+/*
+ * Hide visually and from screenreaders, but maintain layout
+ */
+/* line 729, styles.scss */
+.invisible {
+  visibility: hidden;
+}
+
+/*
+ * Clearfix: contain floats
+ *
+ * For modern browsers
+ * 1. The space content is one way to avoid an Opera bug when the
+ *    `contenteditable` attribute is included anywhere else in the document.
+ *    Otherwise it causes space to appear at the top and bottom of elements
+ *    that receive the `clearfix` class.
+ * 2. The use of `table` rather than `block` is only necessary if using
+ *    `:before` to contain the top-margins of child elements.
+ */
+/* line 746, styles.scss */
+.clearfix:before,
+.clearfix:after {
+  content: " ";
+  /* 1 */
+  display: table;
+  /* 2 */
+}
+
+/* line 751, styles.scss */
+.clearfix:after {
+  clear: both;
+}
+
+/*
+ * For IE 6/7 only
+ * Include this rule to trigger hasLayout and contain floats.
+ */
+/* line 760, styles.scss */
+.clearfix {
+  *zoom: 1;
+}

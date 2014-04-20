@@ -6,77 +6,177 @@ title: RFC Overview
 
 
 
-	<div id="overview" class="overview row">
+
+	<div id="overview" class="overview">
+
+		<div class="container">
+			<div class="row">
+				<div class="col-md-7 col-md-offset-1">
+					<h2>Request for Comments</h2>
+
+	
+					<p>This is the Abstract Factory RFC project in which we gather the basis of our implementations in language-neutral, implementation-free and high-level specifications known as RFCs or Request for Comments.</p>
+
+					<p>This is where you may influence and contribute to our goals, making our work better which ultimately makes your work better. If you succeed, we succeed.</p>
+
+					<p>To create a new RFC or propose changes to a draft, feel free to fork the <a href="https://github.com/abstractfactory/rfc">RFC</a> repository and submit a pull request.</p>
+
+					<p>To make collaborative specifications possible, they are governed by the <a href="http://www.digistan.org/spec:1/COSS">Consensus-Oriented Specification System (COSS)</a>.</p>
 
 
 
-		<div class="col-md-7 col-md-offset-1">
-		<h2>Request for Comments</h2>
+		    	</div> <!-- .col -->
+		    </div> <!-- .row -->
+		</div>
 
-		<p>This site contains published Abstract Factory RFCs. To create a new RFC or propose changes to a spec, please <a href="https://github.com/abstractfactory/rfc">fork the RFC repository</a>.</p>
+		<div id="menu">
 
+		<hr>
 
-  <ul class="sub-nav nav nav-pills">
-      <li class="dropdown">
-        <a class="btn btn-default" id="drop4" role="button" data-toggle="dropdown" href="#">Sort by State <b class="caret"></b></a>
-        <ul id="menu1" class="dropdown-menu" role="menu" aria-labelledby="drop4">
-	            <li class="btn" id="filter-none">Show all</li>
-	            <li class="btn" id="filter-draft">Only show draft</li>
-	            <li class="btn" id="filter-raw">Only show raw</li>
-        </ul>
-      </li>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-11 col-md-offset-1">
+				 				
+			 		<ul class="nav navbar-nav controls">
 
 
-      <li>
-      <button class="sort btn btn-default" data-sort="date">
-	    Sort by Last Modified
-	  </button>
-      </li>
-     
+			            <li><label>Filter:</label></li>
 
+			            <li><button type="button" class="btn btn-default filter" data-filter=".raw">
+			              <span class="raw circle"></span> Raw
+			            </button></li>
 
+			          <li><button type="button" class="btn btn-default filter" data-filter=".draft">
+			            <span class="draft circle"></span> Draft
+			          </button></li>
 
-
-	  <input class="search" placeholder="Search..." />
-
-
-
-
-    </ul> <!-- /pills -->
+			           <li><button type="button" class="btn btn-default filter" data-filter=".retired">
+			            <span class="retired circle"></span> Retired
+			          </button></li>
 
 
 
 
+			            <li class="lastModified"><label>Last Modified:</label></li>
+
+
+			           <li><button type="button" class="btn btn-default sort" data-sort="myorder:asc">
+			            <span>&#8593;</span> Asc
+			          </button></li>
+
+
+			           <li><button type="button" class="btn btn-default sort" data-sort="myorder:desc">
+			            <span>&#8595;</span> Desc
+			          </button></li>
+
+
+			            <li class="lastModified"><label>Number:</label></li>
+
+
+			           <li><button type="button" class="btn btn-default sort" data-sort="spec:asc">
+			            <span>&#8593;</span> Asc
+			          </button></li>
+
+
+			           <li><button type="button" class="btn btn-default sort" data-sort="spec:desc">
+			            <span>&#8595;</span> Desc
+			          </button></li>
 
 
 
-         
+			          </ul>
 
-		<ul class="list">
+
+
+		    	</div> <!-- .col -->
+		    </div> <!-- .row -->
+		</div> <!-- .container -->
+
+
+
+		<hr class="beforeList">
+
+
+		</div> <!-- #menu -->
+
+		<ul id="overviewlist" class="list" >
 		{% for weight in (1..site.pages.size) %}
 		  {% for spec in site.pages %}
 		  	{% if spec.layout == 'spec' %}
 			    {% if spec.number == weight %}
 			    	
 
-					<li class="{{spec.state}}">
-						<a class="title" href="{{site.baseurl}}{{spec.url}}">{{spec.number}}  &mdash; {{spec.title}}</a>
-						<p class="summary">{{spec.summary}}</p>
+					<li class="{{spec.state}}" data-myorder="{{spec.modified | date: "%Y-%m-%d %H:%M:%S"}}" data-spec="{{spec.number}}">
 						
+							<div class="container">
+								<div class="row">
+									<div class="col-md-1 col-md-offset-1">
+										<h4><a class="title number" href="{{site.baseurl}}{{spec.url}}">{{spec.number}}</a></h4>
+									</div>
 
-							{% if spec.modified %}
-								<span class="date">{{spec.modified | date: "%Y-%m-%d %H:%M:%S"}}</span>
-							{% endif %}
 
-							{% if spec.tags %}
-								<span class="tags">{{spec.tags}}</span>
-							{% endif %}
+									<div class="col-md-6">
+										<h4><a class="title" href="{{site.baseurl}}{{spec.url}}">{{spec.title}}</a></h4>
+										<p class="summary">{{spec.summary}}</p>
+										
 
-							{% if spec.state %}
-								<span class="state">{{spec.state}}</span>
-							{% endif %}
+								
 
-						
+
+
+							    	</div> <!-- .col -->
+
+
+									<div class="col-md-3 col-md-offset-1 meta-content">
+											
+											{% if spec.state %}
+												<div class="row">
+													<div class="col-md-1">
+														State:
+													</div>
+													<div class="col-md-7 col-md-offset-2">
+														<span class="{{spec.state}} circle"></span>
+														<span class="state">{{spec.state}}</span>
+														<br>
+													</div>
+												</div>
+											{% endif %}
+
+											
+
+											{% if spec.modified %}
+												<div class="row">
+													<div class="col-md-1">
+														Modified:
+													</div>
+													<div class="col-md-7 col-md-offset-2">
+														<span class="date">{{spec.modified | date: "%Y-%m-%d %H:%M:%S" | date_to_string}}</span>
+													</div>
+												</div>
+											{% endif %}
+
+											
+
+											{% if spec.tags %}
+												<div class="row">
+													<div class="col-md-1">
+														Tags:
+													</div>
+													<div class="col-md-7 col-md-offset-2">
+														<span class="tags">{{spec.tags}}</span>
+													</div>
+												</div>
+											{% endif %}
+
+
+							    	</div> <!-- .col -->
+
+
+
+							    </div> <!-- .row -->
+							</div>
+
+		
 					</li>
 			    {% endif %}
 			{% endif %}
@@ -85,7 +185,7 @@ title: RFC Overview
 		</ul>
 
 
-		</div>
+		
 
 	</div>
       
