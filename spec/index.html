@@ -18,7 +18,7 @@ layout: default
 		  {% for spec in site.pages %}
 		  	{% if spec.layout == 'spec' %}
 			    {% if spec.number == weight %}
-					<li>
+					<li onclick="location.href='{{site.baseurl}}{{spec.url}}';">
 						<a href="{{site.baseurl}}{{spec.url}}">{{spec.number}}  &mdash; {{spec.title}}</a>
 						<p>{{spec.summary}}</p>
 					</li>
