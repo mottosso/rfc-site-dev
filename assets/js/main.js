@@ -14,6 +14,7 @@ $(function(){
 			target: 'li'
 		},
 	  	animation: {
+	  		enable: false,
 	  		effects: 'fade'
 	  	},
 	  	layout: {

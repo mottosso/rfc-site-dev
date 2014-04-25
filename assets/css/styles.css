@@ -59,7 +59,7 @@ a:hover, a:active, a:focus {
 
 /* line 73, styles.scss */
 h1, h2, h3, h4 {
-  font-family: "ff-din-web", Helvetica, Arial, sans-serif;
+  font-family: Helvetica, Arial, sans-serif;
 }
 
 /* line 77, styles.scss */
@@ -86,7 +86,7 @@ code, kbd, pre, samp {
 
 /* line 102, styles.scss */
 img {
-  width: 100%;
+  max-width: 100%;
   height: auto;
 }
 
@@ -196,7 +196,7 @@ pre code {
 .navbar-nav {
   margin-left: 40px;
   margin-top: 20px;
-  font-family: "ff-din-web", Helvetica, Arial, sans-serif;
+  font-family: Helvetica, Arial, sans-serif;
 }
 
 /* line 220, styles.scss */
@@ -204,9 +204,8 @@ pre code {
   padding: 0;
   background: none;
   margin-right: 20px;
-  font-size: 14px;
+  font-size: 13px;
   text-transform: uppercase;
-  color: #000;
 }
 /* line 228, styles.scss */
 .navbar-nav > li > a:hover, .navbar-nav.controls button:hover {
@@ -311,7 +310,7 @@ body {
    ========================================================================== */
 /* line 339, styles.scss */
 #sidebar .btn {
-  font-family: "ff-din-web", Helvetica, Arial, sans-serif;
+  font-family: Helvetica, Arial, sans-serif;
 }
 
 /* ==========================================================================
@@ -334,9 +333,9 @@ body {
 }
 /* line 365, styles.scss */
 .overview ul.list li {
-  border-bottom: 1px solid #EEEEEE;
-  padding-top: 20px;
-  padding-bottom: 20px;
+  cursor: pointer;
+  padding-top: 30px;
+  padding-bottom: 30px;
   width: 100%;
   display: block;
   color: #333;
@@ -363,7 +362,7 @@ body {
 }
 /* line 400, styles.scss */
 .overview ul.list li .title {
-  font-family: "ff-din-web", Helvetica, Arial, sans-serif;
+  font-family: Helvetica, Arial, sans-serif;
 }
 /* line 405, styles.scss */
 .overview ul.list li .title.number a:hover {

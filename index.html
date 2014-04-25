@@ -106,7 +106,7 @@ title: RFC Overview
 			    {% if spec.number == weight %}
 			    	
 
-					<li class="{{spec.state}}" data-myorder="{{spec.modified | date: "%Y-%m-%d %H:%M:%S"}}" data-spec="{{spec.number}}">
+					<li onclick="location.href='{{site.baseurl}}{{spec.url}}';" class="{{spec.state}}" data-myorder="{{spec.modified | date: "%Y-%m-%d %H:%M:%S"}}" data-spec="{{spec.number}}">
 						
 							<div class="container">
 								<div class="row">
