@@ -17,36 +17,6 @@
 
 
 
-/* ==========================================================================
-   Typekit
-   ========================================================================== */
-
-
-
-	.wf-loading {
-		height: 100%;
-		overflow: hidden;
-		background-color: #fff;
-		background-repeat: no-repeat;
-		background-position: fixed;
-	}
-	.wf-loading * {
-		opacity: 0;
-	}
-	.wf-active body,
-	.wf-inactive body {
-		-webkit-animation: fade 1s ease;
-		-moz-animation: fade 1s ease;
-		-ms-animation: fade 1s ease;
-		-o-animation: fade 1s ease;
-		animation: fade 1s ease;
-		-webkit-animation-fill-mode: both;
-		-moz-animation-fill-mode: both;
-		-ms-animation-fill-mode: both;
-		-o-animation-fill-mode: both;
-		animation-fill-mode: both;
-	}
-
 
 
 /* ==========================================================================
