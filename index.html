@@ -36,55 +36,66 @@ title: RFC Overview
 		<div class="container">
 			<div class="row">
 				<div class="col-md-11 col-md-offset-1">
+
 				 				
 			 		<ul class="nav navbar-nav controls">
 
 
-			            <li><label>Filter:</label></li>
+					 		<li class="filters">
+					 			<ul>
 
-			            <li><button type="button" class="btn btn-default filter" data-filter=".raw">
-			              <span class="raw circle"></span> Raw
-			            </button></li>
+					          <li><label class="icon eye ir">Filter:</label></li>
 
-			          <li><button type="button" class="btn btn-default filter" data-filter=".draft">
-			            <span class="draft circle"></span> Draft
-			          </button></li>
+					          <li><button type="button" class="btn btn-default filter" data-filter=".raw">
+					              <span class="raw circle"></span> Raw
+					            </button></li>
 
-			           <li><button type="button" class="btn btn-default filter" data-filter=".retired">
-			            <span class="retired circle"></span> Retired
-			          </button></li>
+					          <li><button type="button" class="btn btn-default filter" data-filter=".draft">
+					            <span class="draft circle"></span> Draft
+					          </button></li>
 
+					           <li><button type="button" class="btn btn-default filter" data-filter=".retired">
+					            <span class="retired circle"></span> Retired
+					          </button></li>
 
+					 			</ul>
+					 		</li>
 
-
-			            <li class="lastModified"><label>Last Modified:</label></li>
-
-
-			           <li><button type="button" class="btn btn-default sort" data-sort="myorder:asc">
-			            <span>&#8593;</span> Asc
-			          </button></li>
+				
 
 
-			           <li><button type="button" class="btn btn-default sort" data-sort="myorder:desc">
-			            <span>&#8595;</span> Desc
-			          </button></li>
+					
+
+					 		<li class="sort-wrap">
+					 			<label class="icon sortarrow ir">Sort:</label>
+								  <select class="form-control" id="SortSelect">
+								    <option value="myorder:desc">Newest: Last Modified</option>
+								    <option value="myorder:asc">Oldest: Last Modified</option>
+								    <option value="spec:asc">Lowest: Spec Number</option>
+								    <option value="spec:desc">Highest: Spec Number</option>
+								  </select>
+							 </li>
+
+					
+  
+
+						  <li class="search-wrap">
+
+							<form>
+							<label class="icon search ir">Sort:</label>
+							<input id="search" type="text" placeholder="Search" role="search" >
+							</form>
+						  </li>
+					
 
 
-			            <li class="lastModified"><label>Number:</label></li>
 
-
-			           <li><button type="button" class="btn btn-default sort" data-sort="spec:asc">
-			            <span>&#8593;</span> Asc
-			          </button></li>
-
-
-			           <li><button type="button" class="btn btn-default sort" data-sort="spec:desc">
-			            <span>&#8595;</span> Desc
-			          </button></li>
-
+				
 
 
 			          </ul>
+
+
 
 
 

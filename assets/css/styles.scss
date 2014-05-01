@@ -1,6 +1,18 @@
+.sort-wrap {
+	.form-control {
+		border:0;
+		box-shadow:none;
+	   -webkit-appearance: none;
+	    -moz-appearance: none;
+	    text-indent: 1px;
+	    text-overflow: '';
+    	outline:none; 
+    	padding-left:0;
+    	padding-top: 8px;
+	}
 
-
-
+	
+}
 
 
 #page-wrap { 
@@ -104,6 +116,11 @@
 	}
 
 
+	hr {
+		margin-top:0;
+		margin-bottom:0;
+	}
+
 
 
 
@@ -195,6 +212,8 @@
 		text-transform: uppercase;
 		//color:#000;
 
+
+
 		&:hover {
 			border-bottom: 1px solid #000;
 		}
@@ -216,10 +235,13 @@
 		background-color:#fff;
 		min-height:50px;
 		z-index:100;
+		margin-top:20px;
+		margin-bottom:20px;
 	}
 
 
 	.navbar-nav.controls {
+
 
 		margin-top:0;
 		margin-left:0;
@@ -247,18 +269,118 @@
 
 		.btn {
 			border:none;
-			line-height:20px;
+			line-height:1em;
 			vertical-align: top;
+			border: 1px solid #dddddd;
+			padding:5px 10px;
+			border-radius: 3px;
+			margin-top:3px;
+			vertical-align: middle;
+
+			&:hover {
+	 			background: none repeat scroll 0 0 #70B32D;
+			    border: 1px solid #70B32D;
+			    color:#fff;
+			}
+
+			&:focus {
+				outline: none;
+
+			}
+
 		}
 
 		.btn:active, .btn.active {
-			 box-shadow: none;
-			  border-bottom: 1px solid #000000;
+		    background: none repeat scroll 0 0 #70B32D;
+		    border: 1px solid #70B32D;
+		    
+		    box-shadow: none;
+		    color: #FFFFFF;
 		}	
 	}
 
 
+	.filters, .sort-wrap, .search-wrap {
+		padding: 20px 0;
+		border-right: 1px solid #EEEEEE;
+		margin-right:20px;
+		height:75px;
+	}
 
+
+	.search-wrap {
+		border-right:none;
+	}
+
+	.filters {
+		width:370px;
+
+		ul {
+			padding:0;
+		}
+
+		li {
+			float:left;
+			list-style:none;
+		}
+	}
+
+	.sort-wrap {
+
+
+		label, #SortSelect {
+			float:left;
+		}
+
+		.form-control {
+			width:auto;
+			margin-right:20px;
+		}
+	}
+
+
+	#search {
+	 	background: inherit;
+	    border: 0 none;
+	    color: #000000;
+	    
+	    outline: medium none;
+	    padding: 0;
+	    width: 79%;
+	    float:left;
+	    margin-top:6px;
+	}
+
+
+
+	.eye {
+		background-image: url('/../assets/img/icons/eye.png');
+		width:40px;
+	}
+
+
+	.icon.sortarrow {
+		background-image: url('/../assets/img/icons/sort.png');
+		padding:0;
+		width:12px;
+	}
+
+
+	.icon.search {
+		background-image: url('/../assets/img/icons/search.png');
+		padding:0;
+		width:20px;
+	}
+
+
+	.icon {
+		background-size:contain;
+		background-repeat:no-repeat;
+		height:20px;
+		margin-top:6px;
+		opacity:0.5;
+		float:left;
+	}
 
 
 

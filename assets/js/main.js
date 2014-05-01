@@ -1,11 +1,16 @@
 $(document).ready(function() {
 	tableofContents();
 	overviewPage();
+	$('.dropdown-toggle').dropdown();
+
+
+	//$('input#search').quicksearch('#overviewlist li');
+
+
 });
 
 
 $(function(){
-
 
 	if ($("#overviewlist")[0]){
 
@@ -27,6 +32,16 @@ $(function(){
 	    controls: {
 	      toggleFilterButtons: true
 	    }
+	  });
+
+
+  var $sortSelect = $('#SortSelect'),
+      $container = $('#overviewlist');
+
+	  $container.mixItUp();
+
+	  $sortSelect.on('change', function(){
+	    $container.mixItUp('sort', this.value);
 	  });
 
 
